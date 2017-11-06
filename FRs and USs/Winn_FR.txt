@@ -1,0 +1,4 @@
+Functional Requirements
+1. The system shall allow the user to create only one playlist per game.
+2. The system shall alow the user to add at least three and up to fifteen songs to their playlist.
+3. The system shall allow the user to view their friends' playlists.

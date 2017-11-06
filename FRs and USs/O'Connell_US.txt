@@ -1,0 +1,14 @@
+﻿Matthew O’Connell
+CSC 307
+Professor Falessi
+9/20/17
+User Stories
+
+
+As a user, I want to meet and keep track of new friends that play too, so that I can have more fun with more people.
+
+
+As a user, I want to guess which of my friends made a playlist, so that I can test how well I know them, and have fun with them.
+
+
+As a user, I want to listen to music through the application, so that I can more easily browse my friends’ selections.

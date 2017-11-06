@@ -1,0 +1,5 @@
+As a superuser, I want to set up and manage games, so that I can control who plays in the game
+
+As a music fan, I want to explore new music that my friends listen to, so that I can diversify my music preferences
+
+As a user, I want to copy my playlists from music streaming services, so that I can easily share my music in the game

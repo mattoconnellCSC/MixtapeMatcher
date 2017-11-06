@@ -1,0 +1,5 @@
+The system shall prevent the use of duplicate songs among any two users.
+
+The system shall allow 10 minutes for each game and lock in the results immediately after.
+
+The system shall provide an embedded youtube video for each song
