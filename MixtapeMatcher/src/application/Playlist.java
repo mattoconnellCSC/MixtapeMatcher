@@ -6,17 +6,10 @@ public class Playlist {
 	private String name;
 	private ArrayList<Song> songs;
 	
-	public Playlist() {}
+	public Playlist(String name) {
+		this.name = name;
+		}
 	
-	public Playlist(ArrayList<Song> songs) {
-		this.songs = songs;
-	}
-	
-	public ArrayList<Song> getSongs() {
-		return songs;
-	}
-	
-	public String getName() {
-		return name;
-	}
+	public ArrayList<Song> getSongs() { return songs; }
+	public String getName() { return name; }
 }

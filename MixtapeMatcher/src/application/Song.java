@@ -18,15 +18,7 @@ public class Song {
 		this.length = length;
 	}
 	
-	public String getTitle() {
-		return this.title;
-	}
-	
-	public String getArtist() {
-		return this.artist;
-	}
-	
-	public float getLength() {
-		return this.length;
-	}
+	public String getTitle() { return this.title; }
+	public String getArtist() { return this.artist; }
+	public float getLength() { return this.length; }
 }
