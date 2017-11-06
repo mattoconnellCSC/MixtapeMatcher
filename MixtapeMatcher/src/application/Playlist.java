@@ -12,6 +12,11 @@ public class Playlist {
 		this.songs = songs;
 	}
 	
-	public ArrayList<Song> getSongs() { return songs; }
-	public String getName() { return name; }
+	public ArrayList<Song> getSongs() {
+		return songs;
+	}
+	
+	public String getName() {
+		return name;
+	}
 }

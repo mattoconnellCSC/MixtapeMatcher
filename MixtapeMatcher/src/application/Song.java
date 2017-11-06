@@ -17,4 +17,16 @@ public class Song {
 		this.artist = artist;
 		this.length = length;
 	}
+	
+	public String getTitle() {
+		return this.title;
+	}
+	
+	public String getArtist() {
+		return this.artist;
+	}
+	
+	public float getLength() {
+		return this.length;
+	}
 }

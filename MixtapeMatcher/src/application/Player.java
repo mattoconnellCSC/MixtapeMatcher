@@ -17,8 +17,17 @@ public class Player {
 		this.name = name;
 	}
 	
-	public String getName() { return name; }
-	public Playlist getPlaylist() { return playlist; }
-	public String getUsername() { return username; }
+	public String getName() {
+		return name;
+	}
+	
+	public Playlist getPlaylist() {
+		return playlist;
+	
+	}
+	public String getUsername() {
+		return username;
+	}
+	
 	//public Image getAvatar() { return avatar; }
 }

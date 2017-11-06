@@ -12,8 +12,13 @@ public class Lobby {
 		this.hostName = hostName;
 	}
 
-	public String getName() { return name; }
-	public String getHostName() { return hostName; }
+	public String getName() {
+		return name;
+	}
+	
+	public String getHostName() {
+		return hostName;
+	}
 	
 	public void addPlayer(String uniqueName) {
 		playerNames.add(uniqueName);
