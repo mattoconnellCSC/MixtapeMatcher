@@ -1,5 +1,0 @@
-1.   As a music fan, I want to get recommendations from my friends, so that I can find new music to listen to.
-
-2.   As a gamer, I want to play with my friends, so that I can have fun with them.
-
-3.   As a social human, I want to share music with my friends, so that I can bond with my friends.

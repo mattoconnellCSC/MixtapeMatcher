@@ -1,4 +1,0 @@
-Functional Requirements
-1. The system shall use users’ Facebook and phone contacts to find friends of theirs that play the game, and connect them with one another.
-2. The system shall connect with a user’s Spotify account to allow them to access their music libraries and create playlists within the system.
-3. The system shall be supported, and be updated to continue being supported, by current iOS and Android operating systems.

@@ -1,3 +1,0 @@
-1.   The system shall allow users to connect with each other and play together.
-2.   The system shall have search functionality that can find at least 1000 musicians and their music.
-3.   The system shall keep playlists anonymous until the end of the games they were made for.

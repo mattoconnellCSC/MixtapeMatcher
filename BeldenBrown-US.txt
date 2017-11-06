@@ -1,4 +1,0 @@
-User Stories
-1) As someone who enjoys different types of music, I want to be exposed to new genres and styles of music, so that I can increase my musical vocabulary.
-2) As a gamer, I want a cooperative play experience, so that I can play a game with other people.
-3) As a social person, I want a platform to interact via common interests with people, so that I can become better friends with them.
