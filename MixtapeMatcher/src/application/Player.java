@@ -3,6 +3,8 @@ package application;
 public class Player {
 	private String name;
 	private Playlist playlist;
+	private int globalScore;
+	private int averageScore;
 	
 	// how to represent images?
 	// private Image avatar;
