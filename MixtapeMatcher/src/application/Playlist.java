@@ -37,18 +37,24 @@ public class Playlist {
 	}
 
 	public void deleteSong(String title, String artist) {
-		for (Song s : songs) {
-			if (s.getTitle().equals(title) && s.getArtist().equals(artist))
+		for (int i = 0; i < songs.size(); i ++) {
+			Song s = songs.get(i);
+			if (s.getTitle().equals(title) && s.getArtist().equals(artist)) {
 				songs.remove(s);
+			}
+			
+			// watch out when deleting the last item while playing
+			if (current == songs.size())
+				current = songs.size() - 1;
 		}
-		
-		current--;
 	}
 	
 	// waiting for Song functionality
 	// Songs should have their own play() anyway
 	public void play() {
-		//songs.get(current).play();
+		if (!isEmpty()) {
+			//songs.get(current).play();
+		}
 	}
 	public void pause() {
 		//songs.get(current).pause();
