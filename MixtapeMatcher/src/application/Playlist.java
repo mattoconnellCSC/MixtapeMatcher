@@ -49,11 +49,9 @@ public class Playlist {
 		}
 	}
 	
-	// waiting for Song functionality
-	// Songs should have their own play() anyway
 	public void play() {
 		if (!isEmpty()) {
-			//songs.get(current).play();
+			String currSongLink = songs.get(current).getLink();
 		}
 	}
 	public void pause() {
