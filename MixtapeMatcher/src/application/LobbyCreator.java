@@ -30,8 +30,8 @@ public class LobbyCreator extends SceneCreator {
 	}
 	
 	private GameDriver gameDriver;
-	boolean isNumPlayersSelected;
-	boolean isNumSongsSelected;
+	public boolean isNumPlayersSelected;
+	public boolean isNumSongsSelected;
 	Button submit;
 	
 	public Scene createScene(Stage stagename)
@@ -70,6 +70,8 @@ public class LobbyCreator extends SceneCreator {
 		submit.setAlignment(Pos.TOP_CENTER);
 		submit.setText("Submit");
 		submit.setDisable(true);
+		
+		//set #players #songs on submit action, then ask each player for name & songs
 		
 		GridPane.setConstraints(title, 0, 0);
 		GridPane.setConstraints(numPlayersLabel, 0, 1);
