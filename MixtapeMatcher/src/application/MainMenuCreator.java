@@ -8,6 +8,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
+/**
+ * Main Menu for everything! 
+ * @author Jordan & Matt
+ *
+ */
 public class MainMenuCreator extends SceneCreator {
 
 	@Override

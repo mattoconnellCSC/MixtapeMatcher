@@ -13,9 +13,11 @@ import javafx.stage.Stage;
 public abstract class SceneCreator {
 	public abstract Scene createScene();
 	
-	public void setScene(Stage stage) {
+	public void setScene(Stage stage, String title) {
 		Scene scene = createScene();
 		
 		stage.setScene(scene);
+		stage.setTitle(title);
+		stage.show();
 	}
 }

@@ -18,9 +18,8 @@ import javafx.scene.layout.BorderPane;
 public class GameDriver extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-	     primaryStage.setTitle("Mixtape Matcher");
-	     primaryStage.show();
-		
+	    	UIDriver driver = new UIDriver(primaryStage);
+	    	driver.setMainMenu();
 	}
 	
 	public static void main(String[] args) {
