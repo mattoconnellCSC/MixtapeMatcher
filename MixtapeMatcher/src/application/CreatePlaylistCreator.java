@@ -2,6 +2,8 @@ package application;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -20,6 +22,10 @@ import javafx.stage.Stage;
 
 public class CreatePlaylistCreator extends SceneCreator{
 
+	public ObservableList<Song> songs = FXCollections.observableArrayList();
+	
+	public ObservableList<Song> mySongs = FXCollections.observableArrayList();
+	
 	public CreatePlaylistCreator(Observer o) {
 		super(o);
 		// TODO Auto-generated constructor stub
@@ -30,11 +36,14 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 		BorderPane border = new BorderPane();
 		border.setPadding(new Insets(20, 0, 20, 0));
-		VBox leftVBox = addLeftVBox();
-		VBox rightVBox = addRightVBox();
+		
+		
+		
+		VBox leftVBox = addLeftVBox(songs);
+		VBox rightVBox = addRightVBox(mySongs);
 		border.setLeft(leftVBox);
 		border.setRight(rightVBox);
-		border.setCenter(addButton());
+		border.setCenter(addButton(songs, mySongs));
 		Text titleText = new Text("Create Your Playlist");
 		titleText.setTextAlignment(TextAlignment.CENTER);
 		HBox titleBox = new HBox();
@@ -47,7 +56,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		return new Scene(border, 275, 250);
 	}
 	
-	public VBox addLeftVBox() {
+	public VBox addLeftVBox(ObservableList<Song> songs) {
 		VBox vbox = new VBox();
 		vbox.setPadding(new Insets(10, 0, 10, 100));
 		
@@ -58,8 +67,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		TextField searchInput = new TextField();
 		Button searchBtn = new Button();
 		searchBtn.setText("Search");
-		
-		ObservableList<Song> songs = FXCollections.observableArrayList();
+	
 		ListView<Song> searchResults = new ListView<Song>(songs);
 		searchResults.setPrefSize(300, 400);
 		searchResults.setEditable(true);
@@ -75,33 +83,32 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 	}
 	
-	public VBox addRightVBox() {
+	public VBox addRightVBox(ObservableList<Song> mySongs) {
 		VBox vbox = new VBox();
 		vbox.setPadding(new Insets(10, 10, 10, 0));
 		
-		GridPane searchGrid = new GridPane();
-		searchGrid.setPadding(new Insets(300, 10, 300, 0));
-		searchGrid.setVgap(10.0);
-		searchGrid.setAlignment(Pos.CENTER_LEFT);
+		GridPane playlistGrid = new GridPane();
+		playlistGrid.setPadding(new Insets(300, 10, 300, 0));
+		playlistGrid.setVgap(10.0);
+		playlistGrid.setAlignment(Pos.CENTER_LEFT);
 		
 		TextField title = new TextField();
-		
-		ObservableList<Song> songs = FXCollections.observableArrayList();
-		ListView<Song> searchResults = new ListView<Song>(songs);
-		searchResults.setPrefSize(300, 400);
-		searchResults.setEditable(true);
+	
+		ListView<Song> playlist = new ListView<Song>(mySongs);
+		playlist.setPrefSize(300, 400);
+		playlist.setEditable(true);
 		
 		GridPane.setConstraints(title, 0, 0, 2, 1, null, null, null, null, null);
-		GridPane.setConstraints(searchResults, 0, 1, 2, 4, null, null, null, null, null);
+		GridPane.setConstraints(playlist, 0, 1, 2, 4, null, null, null, null, null);
 		
-		searchGrid.getChildren().addAll(title, searchResults);
-		vbox.getChildren().add(searchGrid);
+		playlistGrid.getChildren().addAll(title, playlist);
+		vbox.getChildren().add(playlistGrid);
 		
 		return vbox;	
 		
 	}
 	
-	public VBox addButton() {
+	public VBox addButton(ObservableList<Song> searchResults, ObservableList<Song> playlist) {
 		VBox vbox = new VBox();
 		vbox.setPadding(new Insets(350, 100, 350, 10));
 		Button addSongBtn = new Button();
@@ -109,7 +116,12 @@ public class CreatePlaylistCreator extends SceneCreator{
 		addSongBtn.setPrefSize(25.0, 15);
 		addSongBtn.setAlignment(Pos.CENTER_LEFT);
 		// TODO: ADD Song Button functionality
-		
+		addSongBtn.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				playlist.addAll(searchResults);
+				System.out.print("Added song!");
+			}
+		});
 		Text arrow = new Text("-->");
 		
 		vbox.getChildren().addAll(addSongBtn, arrow);
