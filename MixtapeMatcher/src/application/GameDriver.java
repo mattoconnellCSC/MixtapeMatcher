@@ -19,7 +19,14 @@ public class GameDriver extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 	    	UIDriver driver = new UIDriver(primaryStage);
-	    	driver.setMainMenu();
+	    	setMainMenu(primaryStage);
+	    	
+	    	driver.start();
+	}
+	
+	public void setMainMenu(Stage stage) {
+		MainMenuCreator menu = new MainMenuCreator();
+		menu.setScene(stage, "Mixtape Matcher");
 	}
 	
 	public static void main(String[] args) {

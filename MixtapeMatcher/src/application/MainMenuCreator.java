@@ -1,5 +1,7 @@
 package application;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -7,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 /**
  * Main Menu for everything! 
@@ -16,7 +19,7 @@ import javafx.scene.layout.StackPane;
 public class MainMenuCreator extends SceneCreator {
 
 	@Override
-	public Scene createScene() {
+	public Scene createScene(Stage stage) {
 		GridPane titlegrid = new GridPane();
 		titlegrid.setPadding(new Insets(10, 10, 10, 10));
 		titlegrid.setVgap(10.0);
@@ -25,6 +28,14 @@ public class MainMenuCreator extends SceneCreator {
 		Label title = new Label("MixtapeMatcher");
 		Button startbtn = new Button();
 		startbtn.setAlignment(Pos.TOP_CENTER);
+		startbtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+            public void handle(ActionEvent event) {
+				Scene nextScene = getLobby(stage);
+				stage.setScene(nextScene);
+			}
+		});
+		
 		Button helpbtn = new Button();
 		helpbtn.setAlignment(Pos.TOP_CENTER);
 		Button loginbtn = new Button();
@@ -47,6 +58,11 @@ public class MainMenuCreator extends SceneCreator {
 		root.getChildren().add(titlegrid);
 		
 		return new Scene(root, 275, 250);
+	}
+	
+	public Scene getLobby(Stage stage) {
+		LobbyCreator lobby = new LobbyCreator();
+		return lobby.createScene(stage);
 	}
 	
 	

@@ -13,8 +13,9 @@ public class UIDriver {
 		this.stage = stage;
 	}
 	
-	public void setMainMenu() {
-		MainMenuCreator menu = new MainMenuCreator();
-		menu.setScene(stage, "Mixtape Matcher");
+	public void start() {
+		
 	}
+	
+	
 }
