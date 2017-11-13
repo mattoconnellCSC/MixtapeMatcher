@@ -1,7 +1,5 @@
 package application;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -32,6 +30,8 @@ public class LobbyCreator extends SceneCreator {
 	private GameDriver gameDriver;
 	public boolean isNumPlayersSelected;
 	public boolean isNumSongsSelected;
+	public int numPlayers, numSongs;
+	public String theme;
 	Button submit;
 	
 	public Scene createScene(Stage stagename)
@@ -45,20 +45,14 @@ public class LobbyCreator extends SceneCreator {
 		
 		Label numPlayersLabel = new Label("Number of Players");
 		numPlayersLabel.setAlignment(Pos.TOP_CENTER);
-		ObservableList<Integer> numPlayersOptions = 
-		    FXCollections.observableArrayList(
-		        1,2,3,4,5,6
-		    );
-		final ComboBox playersComboBox = new ComboBox(numPlayersOptions);
+		ComboBox<Integer> playersComboBox = new ComboBox<Integer>();
+		playersComboBox.getItems().setAll(1,2,3,4,5,6);
 		playersComboBox.setOnAction(e -> setPlayersSelected());
 		
 		Label maxSongsLabel = new Label("Max Songs Per Player");
 		maxSongsLabel.setAlignment(Pos.TOP_CENTER);
-		ObservableList<Integer> numSongsOptions = 
-		    FXCollections.observableArrayList(
-		    		1,2,3,4
-		    );
-		final ComboBox songsComboBox = new ComboBox(numSongsOptions);
+		ComboBox<Integer> songsComboBox = new ComboBox<Integer>();
+		songsComboBox.getItems().setAll(1,2,3,4);
 		songsComboBox.setOnAction(e -> setNumSongsSelected());
 		
 		Label themeLabel = new Label("Theme (optional)");
@@ -71,8 +65,17 @@ public class LobbyCreator extends SceneCreator {
 		submit.setText("Submit");
 		submit.setDisable(true);
 		
-		//set #players #songs on submit action, then ask each player for name & songs
-		
+		submit.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent e) {
+		        //set #players, #songs, theme on submit action, then ask each player for name
+		    		numPlayers = Integer.parseInt(playersComboBox.getValue().toString());
+		    		numSongs = Integer.parseInt(songsComboBox.getValue().toString());
+		    		theme = themeInput.getText();
+		    		submit.setText("cool " + theme);
+		    }
+		});
+				
 		GridPane.setConstraints(title, 0, 0);
 		GridPane.setConstraints(numPlayersLabel, 0, 1);
 		GridPane.setConstraints(playersComboBox, 1, 1);
@@ -97,7 +100,7 @@ public class LobbyCreator extends SceneCreator {
 	}
 	
 	public void notifyGameDriver(GameDriver gd, Object data) {
-		gd.update(data);
+		gd.update(data); //pass shit (Lobby object?) to game driver gd
 	}
 	
 	public void setPlayersSelected() {
@@ -112,5 +115,9 @@ public class LobbyCreator extends SceneCreator {
 		if (isNumPlayersSelected == true) {
 			submit.setDisable(false);
 		}
+	}
+	
+	public void setNumbersAndGetPlayerNames() {
+		//
 	}
 }
