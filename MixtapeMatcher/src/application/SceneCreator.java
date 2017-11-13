@@ -23,6 +23,10 @@ public abstract class SceneCreator implements Subject {
 		o.update(data);
 	}
 	
+	public Observer getObserver() {
+		return this.o;
+	}
+	
 	public void setScene(Stage stage, String title) {
 		Scene scene = createScene(stage);
 		

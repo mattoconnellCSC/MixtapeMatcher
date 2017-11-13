@@ -17,7 +17,7 @@ public class GameDriver extends Application implements Observer {
 	@Override
 	public void start(Stage primaryStage) {
 	    	UIDriver driver = new UIDriver(primaryStage, this);
-	    	driver.setMainMenu(primaryStage);
+	    	driver.setMainMenu();
 		
 	}
 	
