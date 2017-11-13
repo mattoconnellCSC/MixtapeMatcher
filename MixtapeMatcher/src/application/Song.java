@@ -1,3 +1,7 @@
+// @Bridget from PL requests Songs have play(), pause(), reset()
+//   also getProgress() (etc) to get song progress
+// TODO: w/ Bridget, play songs consecutively in Playlist
+
 package application;
 
 public class Song {
