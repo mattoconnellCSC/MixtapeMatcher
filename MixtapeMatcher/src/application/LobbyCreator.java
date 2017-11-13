@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Optional;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -7,10 +9,15 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -33,6 +40,7 @@ public class LobbyCreator extends SceneCreator {
 	public int numPlayers, numSongs;
 	public String theme;
 	Button submit;
+	String playerNames[];
 	
 	public Scene createScene(Stage stagename)
 	{
@@ -66,20 +74,14 @@ public class LobbyCreator extends SceneCreator {
 		submit.setDisable(true);
 		
 		submit.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-            public void handle(ActionEvent event) {
-				notifyObserver("create"); //send next scene to UIDriver
-			}
-		});
-		
-		submit.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 		    public void handle(ActionEvent e) {
 		        //set #players, #songs, theme on submit action, then ask each player for name
 		    		numPlayers = Integer.parseInt(playersComboBox.getValue().toString());
 		    		numSongs = Integer.parseInt(songsComboBox.getValue().toString());
 		    		theme = themeInput.getText();
-		    		notifyObserver("create");
+		    		getPlayerNames(numPlayers, stagename);
+		    		//submit.setText("cool " + numPlayers + " " + numSongs + " " + theme);
 		    }
 		});
 
@@ -124,7 +126,20 @@ public class LobbyCreator extends SceneCreator {
 		}
 	}
 	
-	public void setNumbersAndGetPlayerNames() {
-		//
+	public void getPlayerNames(int numPlayers, Stage stagename) {
+		//popup to get players' names
+		TextInputDialog dialog = new TextInputDialog(null);
+		dialog.setTitle("Player Names");
+		playerNames = new String[numPlayers];
+
+		for (int i=0; i<numPlayers; i++) {
+			dialog.setHeaderText("Player " + (i+1) + "'s Name:");
+			Optional<String> result = dialog.showAndWait();
+			playerNames[i] = result.toString();
+			playerNames[i] = playerNames[i].substring(9, playerNames[i].length()-1);
+			dialog = new TextInputDialog(null);
+		}
+		
+		notifyObserver("create"); //send next scene to UIDriver
 	}
 }
