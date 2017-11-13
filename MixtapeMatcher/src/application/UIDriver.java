@@ -2,10 +2,20 @@ package application;
 
 import javafx.stage.Stage;
 
+/**
+ * Driver class for UI screens.
+ * @author Jordan
+ *
+ */
 public class UIDriver implements Observer {
 	private Stage stage;
 	private GameDriver parent;
 	
+	/**
+	 * Constructor :)
+	 * @param stage: the stage the app is displayed on
+	 * @param parent: GameDriver class, needed for LobbyCreator
+	 */
 	public UIDriver(Stage stage, GameDriver parent) {
 		this.stage = stage;
 		this.parent = parent;

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  * Main Menu for everything! 
- * @author Jordan & Matt
+ * @author Jordan, Matt
  *
  */
 public class MainMenuCreator extends SceneCreator {
