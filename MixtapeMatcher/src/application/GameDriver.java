@@ -9,8 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
@@ -20,6 +18,7 @@ public class GameDriver extends Application implements Observer {
 	public void start(Stage primaryStage) {
 	    	UIDriver driver = new UIDriver(primaryStage, this);
 	    	driver.setMainMenu(primaryStage);
+		
 	}
 	
 	public static void main(String[] args) {
@@ -28,6 +27,6 @@ public class GameDriver extends Application implements Observer {
 
 	@Override
 	public void update(Object data) {
-		
+		// get text input of numPlayers, numSongs, and optional theme
 	}
 }

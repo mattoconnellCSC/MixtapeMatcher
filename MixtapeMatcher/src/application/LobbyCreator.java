@@ -1,16 +1,25 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+/**
+ * Creates the scene for the lobby
+ * @author Natalie, Matt
+ *
+ */
 
 
 public class LobbyCreator extends SceneCreator {
@@ -21,6 +30,9 @@ public class LobbyCreator extends SceneCreator {
 	}
 	
 	private GameDriver gameDriver;
+	boolean isNumPlayersSelected;
+	boolean isNumSongsSelected;
+	Button submit;
 	
 	public Scene createScene(Stage stagename)
 	{
@@ -30,39 +42,48 @@ public class LobbyCreator extends SceneCreator {
 		lobbygrid.setHgap(5.0);
 		lobbygrid.setAlignment(Pos.CENTER);
 		Label title = new Label("Lobby");
+		
 		Label numPlayersLabel = new Label("Number of Players");
 		numPlayersLabel.setAlignment(Pos.TOP_CENTER);
-		TextField numPlayersInput = new TextField();
-		numPlayersInput.setAlignment(Pos.TOP_CENTER);
-		Label maxSongsLabel = new Label("Max Songs");
-		maxSongsLabel.setAlignment(Pos.TOP_CENTER);;
-		TextField maxSongsInput = new TextField();
-		maxSongsInput.setAlignment(Pos.TOP_CENTER);
+		ObservableList<Integer> numPlayersOptions = 
+		    FXCollections.observableArrayList(
+		        1,2,3,4,5,6
+		    );
+		final ComboBox playersComboBox = new ComboBox(numPlayersOptions);
+		playersComboBox.setOnAction(e -> setPlayersSelected());
 		
-
+		Label maxSongsLabel = new Label("Max Songs Per Player");
+		maxSongsLabel.setAlignment(Pos.TOP_CENTER);
+		ObservableList<Integer> numSongsOptions = 
+		    FXCollections.observableArrayList(
+		    		1,2,3,4
+		    );
+		final ComboBox songsComboBox = new ComboBox(numSongsOptions);
+		songsComboBox.setOnAction(e -> setNumSongsSelected());
+		
 		Label themeLabel = new Label("Theme (optional)");
-		themeLabel.setAlignment(Pos.TOP_CENTER);;
+		themeLabel.setAlignment(Pos.TOP_CENTER);
 		TextField themeInput = new TextField();
 		themeInput.setAlignment(Pos.TOP_CENTER);
 		
-		Button submit = new Button();
+		submit = new Button();
 		submit.setAlignment(Pos.TOP_CENTER);
 		submit.setText("Submit");
-		
+		submit.setDisable(true);
 		
 		GridPane.setConstraints(title, 0, 0);
 		GridPane.setConstraints(numPlayersLabel, 0, 1);
-		GridPane.setConstraints(numPlayersInput, 1, 1);
+		GridPane.setConstraints(playersComboBox, 1, 1);
 		GridPane.setConstraints(maxSongsLabel, 0, 2);
-		GridPane.setConstraints(maxSongsInput, 1, 2);
+		GridPane.setConstraints(songsComboBox, 1, 2);
 		GridPane.setConstraints(themeLabel, 0, 3);
 		GridPane.setConstraints(themeInput, 1, 3);
 		GridPane.setConstraints(submit, 1, 4);
 		lobbygrid.getChildren().add(title);
 		lobbygrid.getChildren().add(numPlayersLabel);
-		lobbygrid.getChildren().add(numPlayersInput);
+		lobbygrid.getChildren().add(playersComboBox);
 		lobbygrid.getChildren().add(maxSongsLabel);
-		lobbygrid.getChildren().add(maxSongsInput);
+		lobbygrid.getChildren().add(songsComboBox);
 		lobbygrid.getChildren().add(themeLabel);
 		lobbygrid.getChildren().add(themeInput);
 		lobbygrid.getChildren().add(submit);
@@ -75,5 +96,19 @@ public class LobbyCreator extends SceneCreator {
 	
 	public void notifyGameDriver(GameDriver gd, Object data) {
 		gd.update(data);
+	}
+	
+	public void setPlayersSelected() {
+		isNumPlayersSelected = true;
+		if (isNumSongsSelected == true) {
+			submit.setDisable(false);
+		}
+	}
+	
+	public void setNumSongsSelected() {
+		isNumSongsSelected = true;
+		if (isNumPlayersSelected == true) {
+			submit.setDisable(false);
+		}
 	}
 }
