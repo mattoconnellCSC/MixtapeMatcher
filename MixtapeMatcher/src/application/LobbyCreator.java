@@ -50,7 +50,7 @@ public class LobbyCreator extends SceneCreator {
 		Label numPlayersLabel = new Label("Number of Players");
 		numPlayersLabel.setAlignment(Pos.TOP_CENTER);
 		ComboBox<Integer> playersComboBox = new ComboBox<Integer>();
-		playersComboBox.getItems().setAll(1,2,3,4,5,6);
+		playersComboBox.getItems().setAll(3,4,5,6);
 		playersComboBox.setOnAction(e -> setPlayersSelected());
 		
 		Label maxSongsLabel = new Label("Max Songs Per Player");
