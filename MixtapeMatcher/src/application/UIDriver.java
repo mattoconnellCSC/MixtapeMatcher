@@ -4,9 +4,11 @@ import javafx.stage.Stage;
 
 public class UIDriver implements Observer {
 	private Stage stage;
+	private GameDriver parent;
 	
-	public UIDriver(Stage stage) {
+	public UIDriver(Stage stage, GameDriver parent) {
 		this.stage = stage;
+		this.parent = parent;
 	}
 	
 	public void setMainMenu(Stage stage) {
@@ -15,7 +17,7 @@ public class UIDriver implements Observer {
 	}
 	
 	public void setLobby(Stage stage) {
-		LobbyCreator lobby = new LobbyCreator(this);
+		LobbyCreator lobby = new LobbyCreator(this, parent);
 		lobby.setScene(stage, "Game Setup");
 	}
 

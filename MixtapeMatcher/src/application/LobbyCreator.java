@@ -15,9 +15,12 @@ import javafx.stage.Stage;
 
 public class LobbyCreator extends SceneCreator {
 
-	public LobbyCreator(Observer o) {
+	public LobbyCreator(Observer o, GameDriver gameDriver) {
 		super(o);
+		this.gameDriver = gameDriver;
 	}
+	
+	private GameDriver gameDriver;
 	
 	public Scene createScene(Stage stagename)
 	{
@@ -68,6 +71,9 @@ public class LobbyCreator extends SceneCreator {
 		root.getChildren().add(lobbygrid);
 		
 		return new Scene(root, 275, 250);
-		
+	}
+	
+	public void notifyGameDriver(GameDriver gd, Object data) {
+		gd.update(data);
 	}
 }
