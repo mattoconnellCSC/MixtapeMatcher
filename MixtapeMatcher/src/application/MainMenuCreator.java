@@ -18,6 +18,10 @@ import javafx.stage.Stage;
  */
 public class MainMenuCreator extends SceneCreator {
 
+	public MainMenuCreator(Observer o) {
+		super(o);
+	}
+
 	@Override
 	public Scene createScene(Stage stage) {
 		GridPane titlegrid = new GridPane();
@@ -31,8 +35,7 @@ public class MainMenuCreator extends SceneCreator {
 		startbtn.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
             public void handle(ActionEvent event) {
-				Scene nextScene = getLobby(stage);
-				stage.setScene(nextScene);
+				notifyObserver("lobby"); //send next scene to UIDriver
 			}
 		});
 		
@@ -58,13 +61,5 @@ public class MainMenuCreator extends SceneCreator {
 		root.getChildren().add(titlegrid);
 		
 		return new Scene(root, 275, 250);
-	}
-	
-	public Scene getLobby(Stage stage) {
-		LobbyCreator lobby = new LobbyCreator();
-		return lobby.createScene(stage);
-	}
-	
-	
-
+	}	
 }

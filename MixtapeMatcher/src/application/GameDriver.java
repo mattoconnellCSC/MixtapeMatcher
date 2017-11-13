@@ -15,21 +15,19 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 
-public class GameDriver extends Application {
+public class GameDriver extends Application implements Observer {
 	@Override
 	public void start(Stage primaryStage) {
 	    	UIDriver driver = new UIDriver(primaryStage);
-	    	setMainMenu(primaryStage);
-	    	
-	    	driver.start();
-	}
-	
-	public void setMainMenu(Stage stage) {
-		MainMenuCreator menu = new MainMenuCreator();
-		menu.setScene(stage, "Mixtape Matcher");
+	    	driver.setMainMenu(primaryStage);
 	}
 	
 	public static void main(String[] args) {
 		launch(args);
+	}
+
+	@Override
+	public void update(Object data) {
+		
 	}
 }
