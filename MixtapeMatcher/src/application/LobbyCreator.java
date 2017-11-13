@@ -66,16 +66,23 @@ public class LobbyCreator extends SceneCreator {
 		submit.setDisable(true);
 		
 		submit.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+            public void handle(ActionEvent event) {
+				notifyObserver("create"); //send next scene to UIDriver
+			}
+		});
+		
+		submit.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 		    public void handle(ActionEvent e) {
 		        //set #players, #songs, theme on submit action, then ask each player for name
 		    		numPlayers = Integer.parseInt(playersComboBox.getValue().toString());
 		    		numSongs = Integer.parseInt(songsComboBox.getValue().toString());
 		    		theme = themeInput.getText();
-		    		submit.setText("cool " + theme);
+		    		notifyObserver("create");
 		    }
 		});
-				
+
 		GridPane.setConstraints(title, 0, 0);
 		GridPane.setConstraints(numPlayersLabel, 0, 1);
 		GridPane.setConstraints(playersComboBox, 1, 1);
