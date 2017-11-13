@@ -12,13 +12,10 @@ public class Lobby {
 	private String name;
 	private ArrayList<Player> players;
 	private Hashtable<String, Integer> gameStatus; // 0 not done, 1 done
-	private String hostName;
-	private String password;
 	private boolean gameOver = false;
 	
-	public Lobby(String name, String hostName) {
+	public Lobby(String name) {
 		this.name = name;
-		this.hostName = hostName;
 		players = new ArrayList<Player>();
 		gameStatus = new Hashtable<String, Integer>();
 	}
@@ -41,7 +38,6 @@ public class Lobby {
 	}
 	
 	public String getName() { return name; }
-	public String getHostName() { return hostName; }
 	
 	public void addPlayer(String uniqueName) {
 		// query the database?
