@@ -8,7 +8,7 @@ import application.Player;
 import application.Song;
 
 /**
- * Test Player Object
+ * Test Playlist Creator
  * @author Matt
  *
  */
