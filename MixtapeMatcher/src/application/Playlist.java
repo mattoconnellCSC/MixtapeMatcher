@@ -12,6 +12,7 @@ public class Playlist {
 	
 	public Playlist(String name) {
 		this.name = name;
+		songs = new ArrayList<Song>();
 		current = -1;
 	}
 	
@@ -32,6 +33,13 @@ public class Playlist {
 		songs.add(addition);
 		
 		// initialize current to first song
+		if (current < 0)
+			current = 0;
+	}
+	
+	public void addSong(Song s) {
+		songs.add(s);
+		
 		if (current < 0)
 			current = 0;
 	}
