@@ -1,1 +1,19 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root {
+	-fx-background-color: #333333;
+	-fx-text-fill: aliceblue;
+	
+}
+.label{
+	-fx-text-fill: aliceblue;
+}
+
+.dialog{
+	-fx-background-color: #333333;
+	-fx-text-fill: aliceblue;
+}
+
+.button{
+	-fx-background-color: linear-gradient(#0ba4ea, #0b34ea);
+	-fx-text-fill: aliceblue;
+}

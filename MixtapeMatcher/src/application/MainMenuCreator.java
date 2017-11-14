@@ -30,6 +30,7 @@ public class MainMenuCreator extends SceneCreator {
 		titlegrid.setHgap(5.0);
 		titlegrid.setAlignment(Pos.CENTER);
 		Label title = new Label("MixtapeMatcher");
+		title.setStyle("-fx-font-size: 36");
 		Button startbtn = new Button();
 		startbtn.setAlignment(Pos.TOP_CENTER);
 		startbtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -60,6 +61,9 @@ public class MainMenuCreator extends SceneCreator {
 		StackPane root = new StackPane();
 		root.getChildren().add(titlegrid);
 		
-		return new Scene(root, 275, 250);
+		Scene mainmenuScene = new Scene(root, 275, 250);
+		mainmenuScene.getStylesheets().add("application/application.css");
+		
+		return mainmenuScene;
 	}	
 }

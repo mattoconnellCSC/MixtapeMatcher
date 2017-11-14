@@ -46,6 +46,7 @@ public class LobbyCreator extends SceneCreator {
 		lobbygrid.setHgap(5.0);
 		lobbygrid.setAlignment(Pos.CENTER);
 		Label title = new Label("Lobby");
+		title.setStyle("-fx-font-size: 36");
 		
 		Label numPlayersLabel = new Label("Number of Players");
 		numPlayersLabel.setAlignment(Pos.TOP_CENTER);
@@ -101,7 +102,10 @@ public class LobbyCreator extends SceneCreator {
 		StackPane root = new StackPane();
 		root.getChildren().add(lobbygrid);
 		
-		return new Scene(root, 275, 250);
+		Scene lobbyScene = new Scene(root, 275, 250);
+		lobbyScene.getStylesheets().add("application/application.css");
+		
+		return lobbyScene;
 	}
 	
 	public void notifyGameDriver(GameDriver gd, Object data) {
@@ -126,6 +130,7 @@ public class LobbyCreator extends SceneCreator {
 		//popup to get players' names
 		TextInputDialog dialog = new TextInputDialog(null);
 		dialog.setTitle("Player Names");
+		
 		playerNames = new String[numPlayers];
 
 		for (int i=0; i<numPlayers; i++) {
