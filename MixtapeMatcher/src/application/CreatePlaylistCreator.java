@@ -22,6 +22,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * UI Screen for the Create Playlist part of the game 
+ * @author Matt
+ *
+ */
+
 public class CreatePlaylistCreator extends SceneCreator{
 
 	public ObservableList<Song> songs = FXCollections.observableArrayList();
@@ -38,6 +44,8 @@ public class CreatePlaylistCreator extends SceneCreator{
 	@Override
 	public Scene createScene(Stage stage) {
 		
+		
+		// Using an Anchor Pane as the root pane in this screen
 		AnchorPane anchor = new AnchorPane();
 		anchor.setPadding(new Insets(10, 10, 10, 10));
 		
@@ -65,7 +73,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		Label playerName = new Label(currentPlayerName);
 		playerStatus.getChildren().addAll(currentPlayerText, playerName);
 		
-		AnchorPane.setTopAnchor(playerStatus, 10.0);
+		AnchorPane.setTopAnchor(playerStatus, 7.5);
 		AnchorPane.setRightAnchor(playerStatus, 10.0);
 		
 		
@@ -74,7 +82,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		VBox rightVBox = addRightVBox(mySongs);
 		Button addButton = new Button();
 		addButton.setText("Add Song");
-		//Add Song Button Functionality
+			//Add Song Button Functionality
 		addButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				mySongs.addAll(songs);
@@ -110,7 +118,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		cpScene.getStylesheets().add("application/application.css");
 		return cpScene;
 	}
-	
+	//This is the Left grouping of boxes
 	public VBox addLeftVBox(ObservableList<Song> songs) {
 		VBox vbox = new VBox();
 		vbox.setPadding(new Insets(10, 10, 10, 10));
@@ -129,8 +137,8 @@ public class CreatePlaylistCreator extends SceneCreator{
 		searchResults.setPrefSize(300, 400);
 		searchResults.setEditable(true);
 		
-		GridPane.setConstraints(searchInput, 0, 0, 2, 1, null, null, null, null, null);
-		GridPane.setConstraints(searchBtn, 2, 0);
+		GridPane.setConstraints(searchInput, 0, 0, 3, 1, null, null, null, null, null);
+		GridPane.setConstraints(searchBtn, 3, 0);
 		GridPane.setConstraints(searchResults, 0, 1, 3, 4, null, null, null, null, null);
 		
 		searchGrid.getChildren().addAll(searchInput, searchBtn, searchResults);
