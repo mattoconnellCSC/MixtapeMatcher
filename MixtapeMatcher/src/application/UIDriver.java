@@ -24,26 +24,20 @@ public class UIDriver implements Observer {
 	public void setMainMenu() {
 		MainMenuCreator menu = new MainMenuCreator(this);
 		menu.setScene(stage, "Mixtape Matcher");
-		stage.setWidth(800);
-		stage.setHeight(800);
 	}
 	
 	public void setLobby() {
 		LobbyCreator lobby = new LobbyCreator(this, parent);
 		lobby.setScene(stage, "Game Setup");
-		stage.setWidth(800);
-		stage.setHeight(800);
 	}
 	
 	public Stage getStage() {
 		return this.stage;
 	}
 	
-	public void setCreate(Stage stage) {
+	public void setCreate() {
 		CreatePlaylistCreator createPlaylist = new CreatePlaylistCreator(this);
 		createPlaylist.setScene(stage, "Create Your Playlist");
-		stage.setWidth(800);
-		stage.setHeight(800);
 	}
 
 	@Override
@@ -55,10 +49,10 @@ public class UIDriver implements Observer {
 			setLobby();
 			break;
 		case "create":
-			setCreate(stage);
+			setCreate();
 			break;
 		default:
-			System.out.println("uh oh");
+			System.err.println("uh oh");
 		}
 		
 	}

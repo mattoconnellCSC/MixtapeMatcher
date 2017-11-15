@@ -125,8 +125,8 @@ public class LobbyCreator extends SceneCreator {
 		return lobbyScene;
 	}
 	
-	public void notifyGameDriver(GameDriver gd, Object data) {
-		gd.update(data); //pass shit (Lobby object?) to game driver gd
+	public void notifyGameDriver(Object data) {
+		gameDriver.update(data); //pass shit (Lobby object?) to game driver gd
 	}
 	
 	public void setPlayersSelected() {
@@ -158,6 +158,7 @@ public class LobbyCreator extends SceneCreator {
 			dialog = new TextInputDialog(null);
 		}
 		
+		notifyGameDriver(new Lobby("")); //someone else (Nat?) create the Lobby object from the data here and put it in this function 
 		notifyObserver("create"); //send next scene to UIDriver
 	}
 }
