@@ -15,12 +15,12 @@ import javafx.scene.layout.BorderPane;
 
 public class GameDriver extends Application implements Observer {
 	private Lobby lobby;
-	
+	private UIDriver driver;
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setWidth(800);
 		primaryStage.setHeight(800);
-	    	UIDriver driver = new UIDriver(primaryStage, this);	    	
+	    	driver = new UIDriver(primaryStage, this);	    	
 	    	driver.setMainMenu();
 		
 	}
@@ -33,5 +33,6 @@ public class GameDriver extends Application implements Observer {
 	public void update(Object data) {
 		Lobby l = (Lobby) data;
 		this.lobby = l;
+		driver.giveLobby(this.lobby);
 	}
 }

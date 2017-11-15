@@ -39,14 +39,19 @@ public class Lobby {
 	
 	public String getName() { return name; }
 	
-	public void addPlayer(String uniqueName) {
-		// query the database?
+	public void addPlayer(Player p) {
+		players.add(p);
+		return;
 	}
 	
 	public Player getPlayer(String uniquePlayerName) {
 		//query database of players for player will unique name
 		//return player
 		return null;
+	}
+	
+	public ArrayList<Player> getPlayerList() {
+		return players;
 	}
 	
 	/*public String getWinner() {

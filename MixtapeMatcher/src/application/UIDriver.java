@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 public class UIDriver implements Observer {
 	private Stage stage;
 	private GameDriver parent;
+	private Lobby lobby;
+	private int playerCount = -1;
 	
 	/**
 	 * Constructor :)
@@ -31,13 +33,14 @@ public class UIDriver implements Observer {
 		lobby.setScene(stage, "Game Setup");
 	}
 	
-	public Stage getStage() {
-		return this.stage;
-	}
-	
 	public void setCreate() {
 		CreatePlaylistCreator createPlaylist = new CreatePlaylistCreator(this);
 		createPlaylist.setScene(stage, "Create Your Playlist");
+	}
+	
+	public void setListen() {
+		ListenCreator listenScreen = new ListenCreator(this);
+		listenScreen.setScene(stage, "Listen to the Playlist");
 	}
 
 	@Override
@@ -51,9 +54,33 @@ public class UIDriver implements Observer {
 		case "create":
 			setCreate();
 			break;
+		case "listen":
+			if(playerCount < 0) {
+				playerCount = lobby.getPlayerList().size();
+				setCreate();
+				playerCount--;
+				break;
+			}
+			else if(playerCount > 0) {
+				setCreate();
+				playerCount--;
+			}
+			else
+				setListen();
+			break;
 		default:
 			System.err.println("uh oh");
 		}
 		
 	}
+	public Stage getStage() {
+		return this.stage;
+	}
+	
+	
+	//This is how the Game Driver will pass the Lobby object to the UI Driver
+	public void giveLobby(Lobby l) {
+		this.lobby = l;
+	}
+	
 }

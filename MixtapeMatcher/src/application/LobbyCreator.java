@@ -158,7 +158,12 @@ public class LobbyCreator extends SceneCreator {
 			dialog = new TextInputDialog(null);
 		}
 		
-		notifyGameDriver(new Lobby("")); //someone else (Nat?) create the Lobby object from the data here and put it in this function 
+		Lobby lob = new Lobby("");
+		for(int i=0; i < playerNames.length; i++) {
+			Player newPlayer = new Player(playerNames[i]);
+			lob.addPlayer(newPlayer);
+		}
+		notifyGameDriver(lob); //someone else (Matt) create the Lobby object from the data here and put it in this function 
 		notifyObserver("create"); //send next scene to UIDriver
 	}
 }

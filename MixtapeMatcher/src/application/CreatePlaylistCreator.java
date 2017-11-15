@@ -1,6 +1,5 @@
 package application;
 
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,16 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.text.TextAlignment;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -101,7 +96,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 				}
 			}
 		});
-		
+		//Delete Song button and Functionality
 		Button delButton = new Button();
 		delButton.setText("Delete Song");
 		delButton.setPrefWidth(150.0);
@@ -138,6 +133,11 @@ public class CreatePlaylistCreator extends SceneCreator{
 		// Button to Save playlist anchored to bottom right of page
 		Button saveButton = new Button();
 		saveButton.setText("Save Playlist");
+		saveButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				notifyObserver("listen");
+			}
+		});
 		AnchorPane.setBottomAnchor(saveButton, 20.0);
 		AnchorPane.setRightAnchor(saveButton, 20.0);
 		
@@ -212,6 +212,8 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 	}
 	
+	
+	// This method Not currently used
 	public VBox addButton(ObservableList<Song> searchResults, ObservableList<Song> playlist) {
 		VBox vbox = new VBox();
 		vbox.setPadding(new Insets(350, 100, 350, 10));
@@ -219,15 +221,14 @@ public class CreatePlaylistCreator extends SceneCreator{
 		addSongBtn.setText("Add Song");
 		addSongBtn.setPrefSize(25.0, 15);
 		addSongBtn.setAlignment(Pos.CENTER_LEFT);
-		// TODO: ADD Song Button functionality
 		
-		Text arrow = new Text("-->");
-		
-		vbox.getChildren().addAll(addSongBtn, arrow);
+		vbox.getChildren().addAll(addSongBtn);
 		
 		return vbox;
 	}
 	
+	
+	//Temporary Method to test add and delete song buttons
 	public void makeFakeSong(String songName) {
 		Song fake = new Song(songName);
 		songs.add(fake);
