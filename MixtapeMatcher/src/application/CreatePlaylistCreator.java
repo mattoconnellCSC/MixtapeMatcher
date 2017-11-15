@@ -31,8 +31,14 @@ import javafx.stage.Stage;
 public class CreatePlaylistCreator extends SceneCreator{
 
 	public ObservableList<Song> songs = FXCollections.observableArrayList();
+	public ObservableList<String> songsNames = FXCollections.observableArrayList();
 	
 	public ObservableList<Song> mySongs = FXCollections.observableArrayList();
+	public ObservableList<String> mySongsNames = FXCollections.observableArrayList();
+	
+
+	public ListView<String> searchResults = new ListView<String>(songsNames);
+	public ListView<String> playlist = new ListView<String>(mySongsNames);
 	
 	public String currentPlayerName = "Matt";
 	
@@ -80,23 +86,46 @@ public class CreatePlaylistCreator extends SceneCreator{
 		//Search Box and Results displayed in Center anchor with Playlist and Add Button
 		VBox leftVBox = addLeftVBox(songs);
 		VBox rightVBox = addRightVBox(mySongs);
+		VBox centerVBox = new VBox();
 		Button addButton = new Button();
 		addButton.setText("Add Song");
+		addButton.setPrefWidth(150.0);
 			//Add Song Button Functionality
 		addButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				mySongs.addAll(songs);
-				System.out.print("Added song!");
+				mySongsNames.add(searchResults.getSelectionModel().getSelectedItem());
+				for(Song s : mySongs) {
+					mySongs.add(s);
+				}
 			}
 		});
+		
+		Button delButton = new Button();
+		delButton.setText("Delete Song");
+		delButton.setPrefWidth(150.0);
+		delButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				String delTitle = playlist.getSelectionModel().getSelectedItem();
+				mySongsNames.remove(playlist.getSelectionModel().getSelectedIndex());
+				for(Song s : mySongs)
+				{
+					if(s.getTitle().equals(delTitle))
+						mySongs.remove(s);
+				}
+			}
+		});
+		centerVBox.getChildren().addAll(addButton, delButton);
+		centerVBox.setSpacing(10.0);
+		centerVBox.setAlignment(Pos.CENTER);
 		GridPane inputGrid = new GridPane();
 		inputGrid.setHgap(20.0);
+		inputGrid.setVgap(10.0);
 		inputGrid.setPadding(new Insets(10, 10, 10, 10));
 		GridPane.setConstraints(leftVBox, 0, 0, 3, 4, null, null, null, null, null);
-		GridPane.setConstraints(addButton, 3, 3, 2, 1, null, null, null, null, null);
+		GridPane.setConstraints(centerVBox, 3, 3, 2, 1, null, null, null, null, null);
 		GridPane.setConstraints(rightVBox, 6, 0, 3, 4, null, null, null, null, null);
 		
-		inputGrid.getChildren().addAll(leftVBox, addButton, rightVBox);
+		inputGrid.getChildren().addAll(leftVBox, centerVBox, rightVBox);
 		
 		AnchorPane.setLeftAnchor(inputGrid, 10.0);
 		AnchorPane.setRightAnchor(inputGrid, 10.0);
@@ -132,8 +161,16 @@ public class CreatePlaylistCreator extends SceneCreator{
 		searchInput.setPrefWidth(200);
 		Button searchBtn = new Button();
 		searchBtn.setText("Go");
+		searchBtn.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				songs.clear();
+				makeFakeSong(searchInput.getText());
+				for(Song s : songs) {
+					songsNames.add(s.getTitle());
+				}
+			}
+		});
 	
-		ListView<Song> searchResults = new ListView<Song>(songs);
 		searchResults.setPrefSize(300, 400);
 		searchResults.setEditable(true);
 		
@@ -160,7 +197,6 @@ public class CreatePlaylistCreator extends SceneCreator{
 		TextField title = new TextField();
 		title.setPromptText("Playlist Title");
 	
-		ListView<Song> playlist = new ListView<Song>(mySongs);
 		playlist.setPrefSize(300, 400);
 		playlist.setEditable(true);
 		
@@ -188,6 +224,11 @@ public class CreatePlaylistCreator extends SceneCreator{
 		vbox.getChildren().addAll(addSongBtn, arrow);
 		
 		return vbox;
+	}
+	
+	public void makeFakeSong(String songName) {
+		Song fake = new Song(songName);
+		songs.add(fake);
 	}
 	
 }
