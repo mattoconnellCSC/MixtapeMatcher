@@ -19,6 +19,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -60,7 +62,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		//Screen Title displayed and anchored at top
 		Label titleText = new Label("Create Your Playlist");
 		titleText.setStyle("-fx-text-fill: aliceblue");
-		titleText.setStyle("-fx-font-size: 36");
+		titleText.setFont(Font.font(null, FontWeight.BOLD, 36));
 		titleText.setAlignment(Pos.CENTER);
 		HBox titleBox = new HBox();
 		titleBox.setPadding(new Insets(15, 10, 10, 10));

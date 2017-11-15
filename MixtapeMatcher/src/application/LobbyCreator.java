@@ -12,8 +12,12 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 /**
@@ -40,13 +44,22 @@ public class LobbyCreator extends SceneCreator {
 	
 	public Scene createScene(Stage stagename)
 	{
+		AnchorPane anchor = new AnchorPane();
+		HBox header = new HBox();
 		GridPane lobbygrid = new GridPane();
 		lobbygrid.setPadding(new Insets(10, 10, 10, 10));
 		lobbygrid.setVgap(10.0);
 		lobbygrid.setHgap(5.0);
 		lobbygrid.setAlignment(Pos.CENTER);
 		Label title = new Label("Lobby");
-		title.setStyle("-fx-font-size: 36");
+		title.setFont(Font.font(null, FontWeight.BOLD, 36));
+		
+		header.setAlignment(Pos.BASELINE_LEFT);
+		header.getChildren().add(title);
+		AnchorPane.setTopAnchor(header, 10.0);
+		AnchorPane.setLeftAnchor(header, 10.0);
+		AnchorPane.setRightAnchor(header, 10.0);
+		
 		
 		Label numPlayersLabel = new Label("Number of Players");
 		numPlayersLabel.setAlignment(Pos.TOP_CENTER);
@@ -81,8 +94,8 @@ public class LobbyCreator extends SceneCreator {
 		    		//submit.setText("cool " + numPlayers + " " + numSongs + " " + theme);
 		    }
 		});
-
-		GridPane.setConstraints(title, 0, 0);
+		
+		
 		GridPane.setConstraints(numPlayersLabel, 0, 1);
 		GridPane.setConstraints(playersComboBox, 1, 1);
 		GridPane.setConstraints(maxSongsLabel, 0, 2);
@@ -90,7 +103,6 @@ public class LobbyCreator extends SceneCreator {
 		GridPane.setConstraints(themeLabel, 0, 3);
 		GridPane.setConstraints(themeInput, 1, 3);
 		GridPane.setConstraints(submit, 1, 4);
-		lobbygrid.getChildren().add(title);
 		lobbygrid.getChildren().add(numPlayersLabel);
 		lobbygrid.getChildren().add(playersComboBox);
 		lobbygrid.getChildren().add(maxSongsLabel);
@@ -101,8 +113,13 @@ public class LobbyCreator extends SceneCreator {
 		
 		StackPane root = new StackPane();
 		root.getChildren().add(lobbygrid);
+		AnchorPane.setTopAnchor(root, 10.0);
+		AnchorPane.setRightAnchor(root, 10.0);
+		AnchorPane.setBottomAnchor(root, 10.0);
+		AnchorPane.setLeftAnchor(root, 10.0);
+		anchor.getChildren().addAll(header, root);
 		
-		Scene lobbyScene = new Scene(root, 275, 250);
+		Scene lobbyScene = new Scene(anchor, 800, 800);
 		lobbyScene.getStylesheets().add("application/application.css");
 		
 		return lobbyScene;
