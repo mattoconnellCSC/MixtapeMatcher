@@ -40,6 +40,10 @@ public class Song {
 		this.link = link;
 	}
 	
+	public String toString() {
+		return ("Title: " + this.title + "\nArtist: " + this.artist);
+	}
+	
 	public String getTitle() { return this.title; }
 	public String getArtist() { return this.artist; }
 	public float getLength() { return this.length; }

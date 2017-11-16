@@ -28,14 +28,12 @@ import javafx.stage.Stage;
 public class CreatePlaylistCreator extends SceneCreator{
 
 	public ObservableList<Song> songs = FXCollections.observableArrayList();
-	public ObservableList<String> songsNames = FXCollections.observableArrayList();
 	
 	public ObservableList<Song> mySongs = FXCollections.observableArrayList();
-	public ObservableList<String> mySongsNames = FXCollections.observableArrayList();
 	
 
-	public ListView<String> searchResults = new ListView<String>(songsNames);
-	public ListView<String> playlist = new ListView<String>(mySongsNames);
+	public ListView<Song> searchResults = new ListView<Song>(songs);
+	public ListView<Song> playlist = new ListView<Song>(mySongs);
 	
 	public String currentPlayerName = "Matt";
 	
@@ -80,6 +78,20 @@ public class CreatePlaylistCreator extends SceneCreator{
 		AnchorPane.setRightAnchor(playerStatus, 10.0);
 		
 		
+		/*
+		searchResults.setCellFactory(param -> new ListCell<Song>() {
+		    @Override
+		    protected void updateItem(Song item, boolean empty) {
+		        super.updateItem(item, empty);
+
+		        if (empty || item == null || item.getTitle() == null) {
+		            setText(null);
+		        } else {
+		            setText(item.getTitle());
+		        }
+		    }
+		}); */
+		
 		//Search Box and Results displayed in Center anchor with Playlist and Add Button
 		VBox leftVBox = addLeftVBox(songs);
 		VBox rightVBox = addRightVBox(mySongs);
@@ -90,10 +102,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 			//Add Song Button Functionality
 		addButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				mySongsNames.add(searchResults.getSelectionModel().getSelectedItem());
-				for(Song s : mySongs) {
-					mySongs.add(s);
-				}
+				mySongs.add(searchResults.getSelectionModel().getSelectedItem());
 			}
 		});
 		//Delete Song button and Functionality
@@ -102,13 +111,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		delButton.setPrefWidth(150.0);
 		delButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				String delTitle = playlist.getSelectionModel().getSelectedItem();
-				mySongsNames.remove(playlist.getSelectionModel().getSelectedIndex());
-				for(Song s : mySongs)
-				{
-					if(s.getTitle().equals(delTitle))
-						mySongs.remove(s);
-				}
+				mySongs.remove(playlist.getSelectionModel().getSelectedIndex());
 			}
 		});
 		centerVBox.getChildren().addAll(addButton, delButton);
@@ -167,9 +170,6 @@ public class CreatePlaylistCreator extends SceneCreator{
 			public void handle(ActionEvent e) {
 				songs.clear();
 				makeFakeSong(searchInput.getText());
-				for(Song s : songs) {
-					songsNames.add(s.getTitle());
-				}
 			}
 		});
 	
@@ -230,7 +230,8 @@ public class CreatePlaylistCreator extends SceneCreator{
 	
 	//Temporary Method to test add and delete song buttons
 	public void makeFakeSong(String songName) {
-		Song fake = new Song(songName);
+		Song fake = new Song(songName, "Matthew");
+		
 		songs.add(fake);
 	}
 	
