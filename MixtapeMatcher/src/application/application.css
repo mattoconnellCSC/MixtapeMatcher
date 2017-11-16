@@ -17,3 +17,8 @@
 	-fx-background-color: linear-gradient(#0ba4ea, #0b34ea);
 	-fx-text-fill: aliceblue;
 }
+
+.label-title{
+	-fx-font-size: 50.0;
+	-fx-font-weight: bold;
+}

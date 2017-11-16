@@ -54,8 +54,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 				
 		//Screen Title displayed and anchored at top
 		Label titleText = new Label("Create Your Playlist");
-		titleText.setStyle("-fx-text-fill: aliceblue");
-		titleText.setFont(Font.font(null, FontWeight.BOLD, 36));
+		titleText.getStyleClass().add("label-title");
 		titleText.setAlignment(Pos.CENTER);
 		HBox titleBox = new HBox();
 		titleBox.setPadding(new Insets(15, 10, 10, 10));
@@ -77,20 +76,6 @@ public class CreatePlaylistCreator extends SceneCreator{
 		AnchorPane.setTopAnchor(playerStatus, 7.5);
 		AnchorPane.setRightAnchor(playerStatus, 10.0);
 		
-		
-		/*
-		searchResults.setCellFactory(param -> new ListCell<Song>() {
-		    @Override
-		    protected void updateItem(Song item, boolean empty) {
-		        super.updateItem(item, empty);
-
-		        if (empty || item == null || item.getTitle() == null) {
-		            setText(null);
-		        } else {
-		            setText(item.getTitle());
-		        }
-		    }
-		}); */
 		
 		//Search Box and Results displayed in Center anchor with Playlist and Add Button
 		VBox leftVBox = addLeftVBox(songs);
