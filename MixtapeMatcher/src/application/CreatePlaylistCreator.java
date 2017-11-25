@@ -36,6 +36,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 	public ListView<Song> playlist = new ListView<Song>(mySongs);
 	
 	public String currentPlayerName = "Matt";
+	public String playlistTitle = "Playlist Title";
 	
 	public CreatePlaylistCreator(Observer o) {
 		super(o);
@@ -124,6 +125,13 @@ public class CreatePlaylistCreator extends SceneCreator{
 		saveButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				notifyObserver("listen");
+				
+				Playlist playlist = new Playlist(playlistTitle);
+				for (Song s : mySongs) {
+					playlist.addSong(s);
+				}
+				
+				// send playlist to another class
 			}
 		});
 		AnchorPane.setBottomAnchor(saveButton, 20.0);
@@ -182,7 +190,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		playlistGrid.setAlignment(Pos.CENTER_LEFT);
 		
 		TextField title = new TextField();
-		title.setPromptText("Playlist Title");
+		title.setPromptText(playlistTitle);
 	
 		playlist.setPrefSize(300, 400);
 		playlist.setEditable(true);
