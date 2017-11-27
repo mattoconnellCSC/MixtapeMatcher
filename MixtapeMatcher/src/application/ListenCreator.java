@@ -2,6 +2,12 @@ package application;
 
 import javafx.stage.Stage;
 
+/**
+ * Listen Creator
+ * @author Natalie
+ *
+ */
+
 public class ListenCreator {
 	
 	public ListenCreator(UIDriver uiDriver) {
