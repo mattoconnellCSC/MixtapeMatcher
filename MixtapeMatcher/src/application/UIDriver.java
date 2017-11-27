@@ -39,8 +39,8 @@ public class UIDriver implements Observer {
 	}
 	
 	public void setListen() {
-		ListenCreator listenScreen = new ListenCreator(this);
-		listenScreen.setScene(stage, "Listen to the Playlist");
+		ListenCreator listenScreen = new ListenCreator(this); //empty constructor
+		listenScreen.setScene(stage, "Listen to the Playlist"); //empty function
 	}
 
 	@Override
