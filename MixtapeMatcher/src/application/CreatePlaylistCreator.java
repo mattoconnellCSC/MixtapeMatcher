@@ -28,14 +28,13 @@ import javafx.stage.Stage;
 public class CreatePlaylistCreator extends SceneCreator{
 
 	public ObservableList<Song> songs = FXCollections.observableArrayList();
-	
 	public ObservableList<Song> mySongs = FXCollections.observableArrayList();
-	
 
 	public ListView<Song> searchResults = new ListView<Song>(songs);
 	public ListView<Song> playlist = new ListView<Song>(mySongs);
 	
-	public String currentPlayerName = "Matt";
+	// change to be an input box, save input
+	public String currentPlayerName = "Player Name";
 	public String playlistTitle = "Playlist Title";
 	public int maxSongs, numSongs=0;
 	
@@ -137,6 +136,9 @@ public class CreatePlaylistCreator extends SceneCreator{
 				for (Song s : mySongs) {
 					playlist.addSong(s);
 				}
+				
+				Player player = new Player(currentPlayerName);
+				player.setPlaylist(playlist);
 				
 				// send playlist to another class
 			}
