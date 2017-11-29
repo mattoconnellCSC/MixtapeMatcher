@@ -88,7 +88,9 @@ public class CreatePlaylistCreator extends SceneCreator{
 			//Add Song Button Functionality
 		addButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				mySongs.add(searchResults.getSelectionModel().getSelectedItem());
+				Song selectedSong = searchResults.getSelectionModel().getSelectedItem();
+				if (selectedSong != null)
+					mySongs.add(selectedSong);
 			}
 		});
 		//Delete Song button and Functionality
