@@ -37,9 +37,11 @@ public class CreatePlaylistCreator extends SceneCreator{
 	
 	public String currentPlayerName = "Matt";
 	public String playlistTitle = "Playlist Title";
+	public int maxSongs, numSongs=0;
 	
-	public CreatePlaylistCreator(Observer o) {
+	public CreatePlaylistCreator(Observer o, Lobby lobby) {
 		super(o);
+		maxSongs = lobby.getMaxSongs();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -89,8 +91,10 @@ public class CreatePlaylistCreator extends SceneCreator{
 		addButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				Song selectedSong = searchResults.getSelectionModel().getSelectedItem();
-				if (selectedSong != null)
+				if (selectedSong != null && numSongs < maxSongs) {
 					mySongs.add(selectedSong);
+					numSongs++;
+				}
 			}
 		});
 		//Delete Song button and Functionality
@@ -100,6 +104,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		delButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				mySongs.remove(playlist.getSelectionModel().getSelectedIndex());
+				numSongs--;
 			}
 		});
 		centerVBox.getChildren().addAll(addButton, delButton);

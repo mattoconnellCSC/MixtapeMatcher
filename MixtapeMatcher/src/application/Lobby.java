@@ -13,9 +13,11 @@ public class Lobby {
 	private ArrayList<Player> players;
 	private Hashtable<String, Integer> gameStatus; // 0 not done, 1 done
 	private boolean gameOver = false;
+	public int maxSongs;
 	
-	public Lobby(String name) {
+	public Lobby(String name, int maxSongs) {
 		this.name = name;
+		this.maxSongs = maxSongs;
 		players = new ArrayList<Player>();
 		gameStatus = new Hashtable<String, Integer>();
 	}
@@ -38,6 +40,10 @@ public class Lobby {
 	}
 	
 	public String getName() { return name; }
+	
+	public int getMaxSongs() {
+		return maxSongs;
+	}
 	
 	public void addPlayer(Player p) {
 		players.add(p);

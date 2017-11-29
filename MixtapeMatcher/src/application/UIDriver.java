@@ -34,7 +34,7 @@ public class UIDriver implements Observer {
 	}
 	
 	public void setCreate() {
-		CreatePlaylistCreator createPlaylist = new CreatePlaylistCreator(this);
+		CreatePlaylistCreator createPlaylist = new CreatePlaylistCreator(this, lobby);
 		createPlaylist.setScene(stage, "Create Your Playlist");
 	}
 	

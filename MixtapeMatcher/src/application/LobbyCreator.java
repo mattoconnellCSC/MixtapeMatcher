@@ -158,7 +158,7 @@ public class LobbyCreator extends SceneCreator {
 			dialog = new TextInputDialog(null);
 		}
 		
-		Lobby lob = new Lobby("");
+		Lobby lob = new Lobby("", numSongs);
 		for(int i=0; i < playerNames.length; i++) {
 			Player newPlayer = new Player(playerNames[i]);
 			lob.addPlayer(newPlayer);

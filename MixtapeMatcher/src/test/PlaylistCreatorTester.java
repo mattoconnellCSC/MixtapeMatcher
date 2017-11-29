@@ -17,7 +17,7 @@ public class PlaylistCreatorTester {
 	
 	@Test
 	public void testSongsAdded() {
-		CreatePlaylistCreator cpc = new CreatePlaylistCreator(null);
+		CreatePlaylistCreator cpc = new CreatePlaylistCreator(null, null);
 		Song s1 = new Song("Hello", "Adele");
 		Song s2;
 		

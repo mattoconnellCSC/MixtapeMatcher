@@ -15,7 +15,8 @@ public class TestLobby {
 	@Test
 	public void test() {
 		String lobbyName = "dummy lobby";
-		Lobby lobby = new Lobby(lobbyName);
+		int maxSongs = 3;
+		Lobby lobby = new Lobby(lobbyName, 3);
 		String retrievedLobbyName = lobby.getName();
 		
 		assertSame(lobbyName, retrievedLobbyName);
