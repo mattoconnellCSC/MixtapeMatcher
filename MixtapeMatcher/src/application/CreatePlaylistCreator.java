@@ -33,13 +33,13 @@ public class CreatePlaylistCreator extends SceneCreator{
 	public ListView<Song> searchResults = new ListView<Song>(songs);
 	public ListView<Song> playlist = new ListView<Song>(mySongs);
 	
+	private TextField playerNameField;
+	private TextField playlistNameField;
+	
 	// change to be an input box, save input
 	public String currentPlayerName = "Player Name";
 	public String playlistTitle = "Playlist Title";
 	public int maxSongs, numSongs=0;
-	
-	private TextField playerNameField;
-	private TextField playlistNameField;
 	
 	public CreatePlaylistCreator(Observer o, Lobby lobby) {
 		super(o);
@@ -122,14 +122,12 @@ public class CreatePlaylistCreator extends SceneCreator{
 			public void handle(ActionEvent e) {
 				notifyObserver("listen");
 				
-				playlistTitle = playlistNameField.getText();
-				Playlist playlist = new Playlist(playlistTitle);
+				Playlist playlist = new Playlist(playlistNameField.getText());
 				for (Song s : mySongs) {
 					playlist.addSong(s);
 				}
 				
-				currentPlayerName = playerNameField.getText();
-				Player player = new Player(currentPlayerName);
+				Player player = new Player(playerNameField.getText());
 				player.setPlaylist(playlist);
 				
 				// send playlist to another class
@@ -190,20 +188,18 @@ public class CreatePlaylistCreator extends SceneCreator{
 		playlistGrid.setVgap(10.0);
 		playlistGrid.setAlignment(Pos.CENTER_LEFT);
 		
-		TextField title = new TextField();
-		title.setPromptText(playlistTitle);
+		playlistNameField = new TextField();
+		playlistNameField.setPromptText(playlistTitle);
 			
 		playlist.setPrefSize(300, 400);
 		playlist.setEditable(true);
 		
-		GridPane.setConstraints(title, 0, 0, 2, 1, null, null, null, null, null);
+		GridPane.setConstraints(playlistNameField, 0, 0, 2, 1, null, null, null, null, null);
 		GridPane.setConstraints(playlist, 0, 1, 2, 4, null, null, null, null, null);
 		
-		playlistGrid.getChildren().addAll(title, playlist);
+		playlistGrid.getChildren().addAll(playlistNameField, playlist);
 		vbox.getChildren().add(playlistGrid);
-		
-		playlistNameField = title;
-		
+				
 		return vbox;	
 	}
 	
@@ -216,14 +212,13 @@ public class CreatePlaylistCreator extends SceneCreator{
 		playlistGrid.setVgap(10.0);
 		playlistGrid.setAlignment(Pos.CENTER_LEFT);
 		
-		TextField playerName = new TextField();
-		playerName.setPromptText(currentPlayerName);
-		playerName.setEditable(true);
+		playerNameField = new TextField();
+		playerNameField.setPromptText(currentPlayerName);
+		playerNameField.setEditable(true);
 				
-		GridPane.setConstraints(playerName, 0, 0, 2, 1, null, null, null, null, null);
-		playlistGrid.getChildren().addAll(playerName);
+		GridPane.setConstraints(playerNameField, 0, 0, 2, 1, null, null, null, null, null);
+		playlistGrid.getChildren().addAll(playerNameField);
 		vbox.getChildren().add(playlistGrid);
-		playerNameField = playerName;
 		
 		return vbox;
 	}
