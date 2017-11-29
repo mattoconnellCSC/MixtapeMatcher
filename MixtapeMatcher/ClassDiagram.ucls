@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="application.Song" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/Song.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="335" width="189" x="744" y="1765"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="application.CreatePlaylistCreator" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/CreatePlaylistCreator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="245" width="369" x="744" y="1390"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="3" language="java" name="application.Observer" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/Observer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="131" x="538" y="748"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="4" language="java" name="application.GameDriver" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/GameDriver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="137" width="131" x="301" y="571"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="application.LobbyCreator" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/LobbyCreator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="299" width="224" x="692" y="232"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="application.GuessCreator" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/GuessCreator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="117" x="410" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="application.SceneCreator" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/SceneCreator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="155" width="176" x="937" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="application.MainMenuCreator" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/MainMenuCreator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="119" width="180" x="41" y="232"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="application.Lobby" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/Lobby.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="245" width="237" x="261" y="748"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="application.UIDriver" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/UIDriver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="245" width="178" x="261" y="232"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="application.Playlist" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/Playlist.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="335" width="187" x="517" y="1390"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="12" language="java" name="application.Subject" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/Subject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="83" width="173" x="479" y="232"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="13" language="java" name="application.GameManager" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/GameManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="180" x="50" y="571"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="application.Player" project="MixtapeMatcher" 
+    file="/MixtapeMatcher/src/application/Player.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="317" width="163" x="389" y="1033"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="15">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="16" name="songs"/>      
+      <multiplicity id="17" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="19" name="single_instance"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="22" name="lobbies"/>      
+      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="25">    
+    <bendpoint x="946" y="232"/>    
+    <bendpoint x="946" y="571"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="26" name="o"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="29" name="gameDriver"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="32" name="parent"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="35" name="driver"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="37">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <realization id="39">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <realization id="40">    
+    <bendpoint x="462" y="571"/>    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="41">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="42" name="playlist"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="45" name="players"/>      
+      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="47">    
+    <bendpoint x="967" y="1033"/>    
+    <bendpoint x="967" y="748"/>    
+    <bendpoint x="967" y="571"/>    
+    <bendpoint x="967" y="232"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="48">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="49" name="songs"/>      
+      <multiplicity id="50" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <bendpoint x="270" y="571"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="52" name="lobby"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="55" name="lobby"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="58" name="mySongs"/>      
+      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

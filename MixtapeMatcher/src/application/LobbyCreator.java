@@ -87,11 +87,16 @@ public class LobbyCreator extends SceneCreator {
 		    @Override
 		    public void handle(ActionEvent e) {
 		        //set #players, #songs, theme on submit action, then ask each player for name
-		    		numPlayers = Integer.parseInt(playersComboBox.getValue().toString());
-		    		numSongs = Integer.parseInt(songsComboBox.getValue().toString());
-		    		theme = themeInput.getText();
-		    		getPlayerNames(numPlayers, stagename);
-		    		//submit.setText("cool " + numPlayers + " " + numSongs + " " + theme);
+//		    		getPlayerNames(numPlayers, stagename);
+		    		
+		    		Lobby lobby = new Lobby();
+		    		lobby.setNumPlayers(Integer.parseInt(playersComboBox.getValue().toString()));
+		    		lobby.setMaxSongs(Integer.parseInt(songsComboBox.getValue().toString()));
+		    		lobby.setTheme(themeInput.getText());
+		    		
+		    		gameDriver.update(lobby);
+		    		
+		    		notifyObserver("create"); //tell UI Driver to move to next Scene
 		    }
 		});
 		
@@ -158,7 +163,7 @@ public class LobbyCreator extends SceneCreator {
 			dialog = new TextInputDialog(null);
 		}
 		
-		Lobby lob = new Lobby("", numSongs);
+		Lobby lob = new Lobby();
 		for(int i=0; i < playerNames.length; i++) {
 			Player newPlayer = new Player(playerNames[i]);
 			lob.addPlayer(newPlayer);

@@ -14,7 +14,7 @@ import javafx.scene.layout.BorderPane;
 
 
 public class GameDriver extends Application implements Observer {
-	private Lobby lobby;
+	private Lobby lobby = new Lobby();
 	private UIDriver driver;
 	@Override
 	public void start(Stage primaryStage) {
@@ -30,9 +30,22 @@ public class GameDriver extends Application implements Observer {
 	}
 
 	@Override
+	//this update is for the Lobby Object; updates different ways based on the data it is sent
 	public void update(Object data) {
-		Lobby l = (Lobby) data;
-		this.lobby = l;
+		if (data.getClass() == Lobby.class) {
+			//initialize lobby; from LobbyCreator
+			Lobby l = (Lobby) data;
+			this.lobby = l;
+			System.out.println("set lobby!");
+		}
+		
+		else if (data.getClass() == Player.class) {
+			//set Players and their Playlists; from CreatePlaylistCreator
+			lobby.addPlayer((Player) data);
+			System.out.println("Player added!");
+		}
+		
+		
 		driver.giveLobby(this.lobby);
 	}
 }

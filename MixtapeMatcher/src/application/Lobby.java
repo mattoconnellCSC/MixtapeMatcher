@@ -6,11 +6,12 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 
 public class Lobby {
 	private ArrayList<Player> players;
-	public int maxSongs;
+	private int maxSongs;
+	private int numPlayers;
+	private String theme;
 	
 	public Lobby() {
 		players = new ArrayList<Player>();
@@ -26,6 +27,22 @@ public class Lobby {
 	
 	public ArrayList<Player> getPlayerList() {
 		return players;
+	}
+	
+	public void setNumPlayers(int num) {
+		this.numPlayers = num;
+	}
+	
+	public int getNumPlayers() {
+		return this.numPlayers;
+	}
+
+	public void setMaxSongs(int n) {
+		this.maxSongs = n;
+	}
+
+	public void setTheme(String t) {
+		this.theme = t;
 	}
 	
 }
