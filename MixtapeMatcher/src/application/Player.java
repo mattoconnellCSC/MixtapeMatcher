@@ -15,8 +15,8 @@ public class Player {
 		score = 0;
 	}
 	
-	public void createPlaylist(String playlistName) {
-		playlist = new Playlist(playlistName);
+	public void setPlaylist(Playlist playlist) {
+		this.playlist = playlist;
 	}
 	
 	public String getName() {
