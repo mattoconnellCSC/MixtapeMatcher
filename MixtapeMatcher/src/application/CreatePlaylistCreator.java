@@ -38,6 +38,9 @@ public class CreatePlaylistCreator extends SceneCreator{
 	public String playlistTitle = "Playlist Title";
 	public int maxSongs, numSongs=0;
 	
+	private TextField playerNameField;
+	private TextField playlistNameField;
+	
 	public CreatePlaylistCreator(Observer o, Lobby lobby) {
 		super(o);
 		maxSongs = lobby.getMaxSongs();
@@ -65,23 +68,10 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 		AnchorPane.setTopAnchor(titleBox, null);
 		
-		//Horizontal Box (anchored to top right) with a variable text denoting current player
-		
-		HBox playerStatus = new HBox();
-		playerStatus.setPadding(new Insets(15, 10, 10, 10));
-		playerStatus.setSpacing(15);
-		
-		Label currentPlayerText = new Label("Current Player:");
-		Label playerName = new Label(currentPlayerName);
-		playerStatus.getChildren().addAll(currentPlayerText, playerName);
-		
-		AnchorPane.setTopAnchor(playerStatus, 7.5);
-		AnchorPane.setRightAnchor(playerStatus, 10.0);
-		
-		
 		//Search Box and Results displayed in Center anchor with Playlist and Add Button
 		VBox leftVBox = addLeftVBox(songs);
 		VBox rightVBox = addRightVBox(mySongs);
+		VBox nameVBox = addNameVBox();
 		VBox centerVBox = new VBox();
 		Button addButton = new Button();
 		addButton.setText("Add Song");
@@ -113,11 +103,11 @@ public class CreatePlaylistCreator extends SceneCreator{
 		inputGrid.setHgap(20.0);
 		inputGrid.setVgap(10.0);
 		inputGrid.setPadding(new Insets(10, 10, 10, 10));
-		GridPane.setConstraints(leftVBox, 0, 0, 3, 4, null, null, null, null, null);
+		GridPane.setConstraints(leftVBox, 0, 1, 3, 4, null, null, null, null, null); // Bridget moved this down by 1
 		GridPane.setConstraints(centerVBox, 3, 3, 2, 1, null, null, null, null, null);
-		GridPane.setConstraints(rightVBox, 6, 0, 3, 4, null, null, null, null, null);
-		
-		inputGrid.getChildren().addAll(leftVBox, centerVBox, rightVBox);
+		GridPane.setConstraints(nameVBox, 6, 0, 3, 1, null, null, null, null, null);
+		GridPane.setConstraints(rightVBox, 6, 1, 3, 4, null, null, null, null, null);
+		inputGrid.getChildren().addAll(leftVBox, centerVBox, rightVBox, nameVBox);
 		
 		AnchorPane.setLeftAnchor(inputGrid, 10.0);
 		AnchorPane.setRightAnchor(inputGrid, 10.0);
@@ -132,22 +122,24 @@ public class CreatePlaylistCreator extends SceneCreator{
 			public void handle(ActionEvent e) {
 				notifyObserver("listen");
 				
+				playlistTitle = playlistNameField.getText();
 				Playlist playlist = new Playlist(playlistTitle);
 				for (Song s : mySongs) {
 					playlist.addSong(s);
 				}
 				
+				currentPlayerName = playerNameField.getText();
 				Player player = new Player(currentPlayerName);
 				player.setPlaylist(playlist);
 				
 				// send playlist to another class
+				System.out.println("player " + player.getName() + " created playlist " + playlist.getName());
 			}
 		});
 		AnchorPane.setBottomAnchor(saveButton, 20.0);
 		AnchorPane.setRightAnchor(saveButton, 20.0);
 		
-		
-		anchor.getChildren().addAll(titleBox, inputGrid, playerStatus, saveButton);
+		anchor.getChildren().addAll(titleBox, inputGrid, saveButton);
 		
 		Scene cpScene = new Scene(anchor, 275, 250);
 
@@ -200,7 +192,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 		TextField title = new TextField();
 		title.setPromptText(playlistTitle);
-	
+			
 		playlist.setPrefSize(300, 400);
 		playlist.setEditable(true);
 		
@@ -210,10 +202,31 @@ public class CreatePlaylistCreator extends SceneCreator{
 		playlistGrid.getChildren().addAll(title, playlist);
 		vbox.getChildren().add(playlistGrid);
 		
-		return vbox;	
+		playlistNameField = title;
 		
+		return vbox;	
 	}
 	
+	public VBox addNameVBox() {
+		VBox vbox = new VBox();
+		vbox.setPadding(new Insets(10, 10, 10, 10));
+		
+		GridPane playlistGrid = new GridPane();
+		playlistGrid.setPadding(new Insets(10, 10, 10, 10));
+		playlistGrid.setVgap(10.0);
+		playlistGrid.setAlignment(Pos.CENTER_LEFT);
+		
+		TextField playerName = new TextField();
+		playerName.setPromptText(currentPlayerName);
+		playerName.setEditable(true);
+				
+		GridPane.setConstraints(playerName, 0, 0, 2, 1, null, null, null, null, null);
+		playlistGrid.getChildren().addAll(playerName);
+		vbox.getChildren().add(playlistGrid);
+		playerNameField = playerName;
+		
+		return vbox;
+	}
 	
 	// This method Not currently used
 	public VBox addButton(ObservableList<Song> searchResults, ObservableList<Song> playlist) {
