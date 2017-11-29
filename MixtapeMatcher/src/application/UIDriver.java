@@ -11,7 +11,7 @@ public class UIDriver implements Observer {
 	private Stage stage;
 	private GameDriver parent;
 	private Lobby lobby;
-	private int playerCount = -1;
+	private int playlistsCreated = 0;
 	
 	/**
 	 * Constructor :)
@@ -34,7 +34,7 @@ public class UIDriver implements Observer {
 	}
 	
 	public void setCreate() {
-		CreatePlaylistCreator createPlaylist = new CreatePlaylistCreator(this, lobby);
+		CreatePlaylistCreator createPlaylist = new CreatePlaylistCreator(this, parent);
 		createPlaylist.setScene(stage, "Create Your Playlist");
 	}
 	
@@ -55,18 +55,15 @@ public class UIDriver implements Observer {
 			setCreate();
 			break;
 		case "listen":
-			if(playerCount < 0) {
-				playerCount = lobby.getPlayerList().size();
+			playlistsCreated++;
+			System.out.printf("Created %d/%d playlists!\n", playlistsCreated, lobby.getNumPlayers());
+			if (playlistsCreated < lobby.getNumPlayers()) {
 				setCreate();
-				playerCount--;
-				break;
 			}
-			else if(playerCount > 0) {
-				setCreate();
-				playerCount--;
-			}
-			else
+			else {
 				setListen();
+			}
+
 			break;
 		default:
 			System.err.println("uh oh");

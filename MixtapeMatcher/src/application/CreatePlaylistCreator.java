@@ -36,14 +36,17 @@ public class CreatePlaylistCreator extends SceneCreator{
 	private TextField playerNameField;
 	private TextField playlistNameField;
 	
+	private GameDriver gd;
+	
 	// change to be an input box, save input
 	public String currentPlayerName = "Player Name";
 	public String playlistTitle = "Playlist Title";
 	public int maxSongs, numSongs=0;
 	
-	public CreatePlaylistCreator(Observer o, Lobby lobby) {
+	public CreatePlaylistCreator(Observer o, GameDriver gd) {
 		super(o);
-		maxSongs = lobby.getMaxSongs();
+		maxSongs = gd.getLobby().getMaxSongs();
+		this.gd = gd;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -132,6 +135,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 				
 				// send playlist to another class
 				System.out.println("player " + player.getName() + " created playlist " + playlist.getName());
+				gd.update(player);
 			}
 		});
 		AnchorPane.setBottomAnchor(saveButton, 20.0);

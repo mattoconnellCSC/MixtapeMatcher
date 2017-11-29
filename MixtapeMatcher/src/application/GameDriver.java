@@ -48,4 +48,8 @@ public class GameDriver extends Application implements Observer {
 		
 		driver.giveLobby(this.lobby);
 	}
+	
+	public Lobby getLobby() {
+		return this.lobby;
+	}
 }
