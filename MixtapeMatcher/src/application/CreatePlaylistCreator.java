@@ -15,11 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * UI Screen for the Create Playlist part of the game 
@@ -222,9 +224,14 @@ public class CreatePlaylistCreator extends SceneCreator{
 	
 	public void informPlayerOfMissingFields(String msg) {
 		Alert missingInfoAlert = new Alert(AlertType.INFORMATION);
-		missingInfoAlert.setTitle("hi");
+		missingInfoAlert.setTitle(" ");
 		missingInfoAlert.setHeaderText("Missing Information");
 		missingInfoAlert.setContentText(msg);
+		missingInfoAlert.setGraphic(null);
+		
+		Stage stage = (Stage) missingInfoAlert.getDialogPane().getScene().getWindow();
+		stage.initStyle(StageStyle.UTILITY);
+		stage.getIcons().add(new Image(this.getClass().getResource("../resources/Warning.png").toString()));
 
 		missingInfoAlert.showAndWait();
 	}
