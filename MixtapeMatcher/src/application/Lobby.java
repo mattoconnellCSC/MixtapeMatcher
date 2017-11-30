@@ -45,4 +45,8 @@ public class Lobby {
 		this.theme = t;
 	}
 	
+	public String getTheme() {
+		return theme;
+	}
+	
 }

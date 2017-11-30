@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * 
+ * @author Natalie, Bridget?
+ *
+ */
+
 public class Player {
 	private String name;
 
@@ -31,6 +37,14 @@ public class Player {
 		return score;
 	}
 	
+	public void incrementScore() {
+		score++;
+	}
+	
+	public void decrementScore() {
+		score--;
+	}
+	
 	public int getGamesPlayed() {
 		return gamesPlayed;
 	}
@@ -46,4 +60,5 @@ public class Player {
 	public void findAverage() {
 		average = (float) sumScores / gamesPlayed;
 	}
+	
 }

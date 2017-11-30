@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 /**
  * UI Screen for the Create Playlist part of the game 
- * @author Matt
+ * @author Matt, Natalie
  *
  */
 
