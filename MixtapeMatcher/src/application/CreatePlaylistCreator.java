@@ -38,6 +38,10 @@ public class CreatePlaylistCreator extends SceneCreator{
 	
 	private GameDriver gd;
 	
+	Button saveButton;
+	public int playlistLength;
+	public boolean nameMade;
+	
 	// change to be an input box, save input
 	public String currentPlayerName = "Player Name";
 	public String playlistTitle = "Playlist Title";
@@ -52,13 +56,9 @@ public class CreatePlaylistCreator extends SceneCreator{
 
 	@Override
 	public Scene createScene(Stage stage) {
-		
-		
 		// Using an Anchor Pane as the root pane in this screen
 		AnchorPane anchor = new AnchorPane();
 		anchor.setPadding(new Insets(10, 10, 10, 10));
-		
-		
 				
 		//Screen Title displayed and anchored at top
 		Label titleText = new Label("Create Your Playlist");
@@ -97,6 +97,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 					mySongs.add(selectedSong);
 					numSongs++;
 				}
+				setPlaylistMade();
 			}
 		});
 		//Delete Song button and Functionality
@@ -105,8 +106,11 @@ public class CreatePlaylistCreator extends SceneCreator{
 		delButton.setPrefWidth(150.0);
 		delButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				mySongs.remove(playlist.getSelectionModel().getSelectedIndex());
-				numSongs--;
+				if (playlist.getSelectionModel().getSelectedIndex() != -1) {
+					mySongs.remove(playlist.getSelectionModel().getSelectedIndex());
+					numSongs--;
+					decrementPlayistLength();
+				}
 			}
 		});
 		centerVBox.getChildren().addAll(addButton, delButton);
@@ -129,23 +133,30 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 		
 		// Button to Save playlist anchored to bottom right of page
-		Button saveButton = new Button();
+		saveButton = new Button();
 		saveButton.setText("Save Playlist");
+		saveButton.setDisable(true);
+		
 		saveButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				notifyObserver("listen");
-				
-				Playlist playlist = new Playlist(playlistNameField.getText());
-				for (Song s : mySongs) {
-					playlist.addSong(s);
-				}
-				
-				Player player = new Player(playerNameField.getText());
-				player.setPlaylist(playlist);
-				
-				// send playlist to another class
-				System.out.println("player " + player.getName() + " created playlist " + playlist.getName());
-				gd.update(player);
+//				if () { //if the player name AND playlist name field is filled
+					notifyObserver("listen");
+					
+					Playlist playlist = new Playlist(playlistNameField.getText());
+					for (Song s : mySongs) {
+						playlist.addSong(s);
+					}
+					
+					Player player = new Player(playerNameField.getText());
+					player.setPlaylist(playlist);
+					
+					// send playlist to another class
+					System.out.println("player " + player.getName() + " created playlist " + playlist.getName());
+					gd.update(player);
+//				}
+//				else { //if the name field is empty
+//					//popup telling player to fill out his/her name or playlist name
+//				}
 			}
 		});
 		AnchorPane.setBottomAnchor(saveButton, 20.0);
@@ -191,6 +202,19 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 		return vbox;	
 		
+	}
+	
+	public void setPlaylistMade() {
+		if (playlistLength < maxSongs)
+			playlistLength += 1;
+			saveButton.setDisable(false);
+	}
+	
+	public void decrementPlayistLength() {
+		if (playlistLength > 0)
+			playlistLength--;
+		if (playlistLength == 0)
+			saveButton.setDisable(true);
 	}
 	
 	public VBox addRightVBox(ObservableList<Song> mySongs) {

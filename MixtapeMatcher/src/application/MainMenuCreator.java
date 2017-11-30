@@ -1,6 +1,5 @@
 package application;
 
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -21,7 +20,7 @@ import javafx.stage.Stage;
 
 /**
  * Main Menu for everything! 
- * @author Jordan, Matt
+ * @author Jordan, Matt, Natalie
  *
  */
 public class MainMenuCreator extends SceneCreator {
@@ -52,8 +51,6 @@ public class MainMenuCreator extends SceneCreator {
 		AnchorPane.setLeftAnchor(topBox, 25.0);
 		AnchorPane.setTopAnchor(topBox, 25.0);
 		
-		
-		
 		Button startbtn = new Button();
 		startbtn.setAlignment(Pos.TOP_CENTER);
 		startbtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -72,19 +69,25 @@ public class MainMenuCreator extends SceneCreator {
 			}
 		});
 		
-		Button loginbtn = new Button();
-		loginbtn.setAlignment(Pos.TOP_CENTER);
+		Button exitButton = new Button();
+		exitButton.setAlignment(Pos.TOP_CENTER);
+		helpbtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+            public void handle(ActionEvent event) {
+				//exit
+			}
+		});
+		
 		startbtn.setText("START");
 		helpbtn.setText("HELP");
-		loginbtn.setText("LOGIN");
-		
+		exitButton.setText("EXIT");
 		
 		GridPane.setConstraints(startbtn, 0, 1);
 		GridPane.setConstraints(helpbtn, 0, 2);
-		GridPane.setConstraints(loginbtn, 0, 3);
+		GridPane.setConstraints(exitButton, 0, 3);
 		titlegrid.getChildren().add(startbtn);
 		titlegrid.getChildren().add(helpbtn);
-		titlegrid.getChildren().add(loginbtn);
+		titlegrid.getChildren().add(exitButton);
 		
 		StackPane root = new StackPane();
 		root.getChildren().add(titlegrid);
