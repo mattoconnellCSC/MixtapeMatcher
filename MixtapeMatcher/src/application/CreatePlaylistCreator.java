@@ -1,5 +1,7 @@
 package application;
 
+import java.io.File;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +21,7 @@ import javafx.stage.Stage;
 
 /**
  * UI Screen for the Create Playlist part of the game 
- * @author Matt, Natalie
+ * @author Matt, Natalie, Tanay
  *
  */
 
@@ -68,6 +70,16 @@ public class CreatePlaylistCreator extends SceneCreator{
 		titleBox.setAlignment(Pos.TOP_CENTER);
 		
 		AnchorPane.setTopAnchor(titleBox, null);
+		
+		//Get names of all mp3s
+		File folder = new File(System.getProperty("user.dir") + "/Songs");
+		File[] listOfFiles = folder.listFiles();
+
+		    for (int i = 0; i < listOfFiles.length; i++) {
+		      if (listOfFiles[i].isFile()) {
+		        System.out.println(listOfFiles[i].getName());
+		      }
+		    }
 		
 		//Search Box and Results displayed in Center anchor with Playlist and Add Button
 		VBox leftVBox = addLeftVBox(songs);
