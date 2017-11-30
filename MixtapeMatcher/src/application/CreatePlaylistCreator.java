@@ -31,6 +31,9 @@ import javafx.stage.StageStyle;
 
 public class CreatePlaylistCreator extends SceneCreator{
 
+	public ObservableList<Song> allSongs = FXCollections.observableArrayList();
+	
+	
 	public ObservableList<Song> songs = FXCollections.observableArrayList();
 	public ObservableList<Song> mySongs = FXCollections.observableArrayList();
 
@@ -81,11 +84,15 @@ public class CreatePlaylistCreator extends SceneCreator{
 		File folder = new File(System.getProperty("user.dir") + "/bin/resources/Songs");
 		File[] listOfFiles = folder.listFiles();
 
-		    for (int i = 0; i < listOfFiles.length; i++) {
-		      if (listOfFiles[i].isFile()) {
-		        System.out.println(listOfFiles[i].getName());
-		      }
-		    }
+	    for (int i = 0; i < listOfFiles.length; i++) {
+	      if (listOfFiles[i].isFile() && listOfFiles[i].getName().contains(".mp3")) {
+	        //System.out.println(listOfFiles[i].getName());
+	        String[] parts = listOfFiles[i].getName().split("-");
+	        //System.out.println("'" + parts[0] + "'" + parts[1] + "'");
+	        Song s = new Song(parts[0].substring(0,parts[0].length()-1), parts[1].substring(1, parts[1].length()-4));
+	        allSongs.add(s);
+	      }
+	    }
 		
 		//Search Box and Results displayed in Center anchor with Playlist and Add Button
 		VBox leftVBox = addLeftVBox(songs);
@@ -204,7 +211,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		searchBtn.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				songs.clear();
-				makeFakeSong(searchInput.getText());
+				searchForSongs(searchInput.getText());
 			}
 		});
 	
@@ -307,12 +314,12 @@ public class CreatePlaylistCreator extends SceneCreator{
 		return vbox;
 	}
 	
-	
-	//Temporary Method to test add and delete song buttons
-	public void makeFakeSong(String songName) {
-		Song fake = new Song(songName, "Matthew");
-		
-		songs.add(fake);
+	public void searchForSongs(String s) {
+		for (int i = 0; i < allSongs.size(); i++) {
+			if (allSongs.get(i).getTitle().contains(s) || allSongs.get(i).getArtist().contains(s)) {
+				songs.add(allSongs.get(i));
+			}
+		}
 	}
 	
 }
