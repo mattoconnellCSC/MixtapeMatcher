@@ -41,6 +41,8 @@ public class CreatePlaylistCreator extends SceneCreator{
 	Button saveButton;
 	public int playlistLength;
 	public boolean nameMade;
+	public String playerName;
+	public String playlistName;
 	
 	// change to be an input box, save input
 	public String currentPlayerName = "Player Name";
@@ -97,7 +99,8 @@ public class CreatePlaylistCreator extends SceneCreator{
 					mySongs.add(selectedSong);
 					numSongs++;
 				}
-				setPlaylistMade();
+				if (selectedSong != null)
+					setPlaylistMade();
 			}
 		});
 		//Delete Song button and Functionality
@@ -139,7 +142,9 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 		saveButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-//				if () { //if the player name AND playlist name field is filled
+				playerName = playerNameField.getText();
+				playlistName = playlistNameField.getText();
+				if (!playerName.equals("") && !playlistName.equals("")) { //if the player name AND playlist name field is filled
 					notifyObserver("listen");
 					
 					Playlist playlist = new Playlist(playlistNameField.getText());
@@ -153,10 +158,19 @@ public class CreatePlaylistCreator extends SceneCreator{
 					// send playlist to another class
 					System.out.println("player " + player.getName() + " created playlist " + playlist.getName());
 					gd.update(player);
-//				}
-//				else { //if the name field is empty
-//					//popup telling player to fill out his/her name or playlist name
-//				}
+				}
+				else if (playerName.equals("") && playlistName.equals("")) { //no player or playlist name
+					//popup telling player to fill out player and playlist name
+					String missingField = "player name and playlist name";
+				}
+				else if (playerName.equals("")) { //no player name
+					//popup telling player to fill out player name
+					String missingField = "player name";
+				}
+				else { //no playlist name
+					//popup telling player to fill out playlist name
+					String missingField = "player name and playlist name";
+				}
 			}
 		});
 		AnchorPane.setBottomAnchor(saveButton, 20.0);
