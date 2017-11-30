@@ -38,10 +38,10 @@ public class ListenCreator extends SceneCreator {
 		HBox buttons = new HBox();
 		Scene scene = new Scene(root);
 	  
-		Image playImg = new Image(getClass().getResourceAsStream("Play.png"));
-		Image pauseImg = new Image(getClass().getResourceAsStream("Pause.png"));
-		Image forwardImg = new Image(getClass().getResourceAsStream("Forward.png"));
-		Image backwardImg = new Image(getClass().getResourceAsStream("Backward.png"));
+		Image playImg = new Image(getClass().getResourceAsStream("../resources/Play.png"));
+		Image pauseImg = new Image(getClass().getResourceAsStream("../resources/Pause.png"));
+		Image forwardImg = new Image(getClass().getResourceAsStream("../resources/Forward.png"));
+		Image backwardImg = new Image(getClass().getResourceAsStream("../resources/Backward.png"));
 		
 		
 	
