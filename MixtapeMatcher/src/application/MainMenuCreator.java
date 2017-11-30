@@ -71,10 +71,11 @@ public class MainMenuCreator extends SceneCreator {
 		
 		Button exitButton = new Button();
 		exitButton.setAlignment(Pos.TOP_CENTER);
-		helpbtn.setOnAction(new EventHandler<ActionEvent>() {
+		exitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
             public void handle(ActionEvent event) {
-				//exit
+				Stage stage = (Stage) exitButton.getScene().getWindow();
+			    stage.close();
 			}
 		});
 		
