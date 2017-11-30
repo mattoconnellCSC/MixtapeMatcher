@@ -42,12 +42,23 @@ public class UIDriver implements Observer {
 		ListenCreator listenScreen = new ListenCreator(this); //empty constructor
 		listenScreen.setScene(stage, "Listen to the Playlist"); //empty function
 	}
+	
+	public void setHelp() {
+		HelpScreenCreator helpScreen = new HelpScreenCreator(this);
+		helpScreen.setScene(stage, "Help Screen");
+	}
 
 	@Override
 	public void update(Object data) {
 		String nextSceneName = (String) data;
 		
 		switch (nextSceneName) {
+		case "help":
+			setHelp();
+			break;
+		case "mainmenu":
+			setMainMenu();
+			break;
 		case "lobby":
 			setLobby();
 			break;

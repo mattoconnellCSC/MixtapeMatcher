@@ -65,6 +65,13 @@ public class MainMenuCreator extends SceneCreator {
 		
 		Button helpbtn = new Button();
 		helpbtn.setAlignment(Pos.TOP_CENTER);
+		helpbtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+            public void handle(ActionEvent event) {
+				notifyObserver("help"); //send next scene to UIDriver
+			}
+		});
+		
 		Button loginbtn = new Button();
 		loginbtn.setAlignment(Pos.TOP_CENTER);
 		startbtn.setText("START");
