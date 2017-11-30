@@ -72,6 +72,7 @@ public class UIDriver implements Observer {
 				setCreate();
 			}
 			else {
+				System.err.println("listen block");
 				setListen();
 			}
 
