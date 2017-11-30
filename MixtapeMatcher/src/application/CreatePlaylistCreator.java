@@ -9,6 +9,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -160,16 +162,16 @@ public class CreatePlaylistCreator extends SceneCreator{
 					gd.update(player);
 				}
 				else if (playerName.equals("") && playlistName.equals("")) { //no player or playlist name
-					//popup telling player to fill out player and playlist name
-					String missingField = "player name and playlist name";
+					String msg = "You are missing the player name and playlist name. Please fill them out before moving forward.";
+					informPlayerOfMissingFields(msg);
 				}
 				else if (playerName.equals("")) { //no player name
-					//popup telling player to fill out player name
-					String missingField = "player name";
+					String msg = "You are missing the player name. Please fill it out before moving forward.";
+					informPlayerOfMissingFields(msg);
 				}
 				else { //no playlist name
-					//popup telling player to fill out playlist name
-					String missingField = "player name and playlist name";
+					String msg = "You are missing the playlist name. Please fill it out before moving forward.";
+					informPlayerOfMissingFields(msg);
 				}
 			}
 		});
@@ -216,6 +218,15 @@ public class CreatePlaylistCreator extends SceneCreator{
 		
 		return vbox;	
 		
+	}
+	
+	public void informPlayerOfMissingFields(String msg) {
+		Alert missingInfoAlert = new Alert(AlertType.INFORMATION);
+		missingInfoAlert.setTitle("hi");
+		missingInfoAlert.setHeaderText("Missing Information");
+		missingInfoAlert.setContentText(msg);
+
+		missingInfoAlert.showAndWait();
 	}
 	
 	public void setPlaylistMade() {
