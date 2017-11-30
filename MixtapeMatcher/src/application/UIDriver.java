@@ -85,6 +85,10 @@ public class UIDriver implements Observer {
 		return this.stage;
 	}
 	
+	public Lobby getLobby() {
+		return this.lobby;
+	}
+	
 	
 	//This is how the Game Driver will pass the Lobby object to the UI Driver
 	public void giveLobby(Lobby l) {

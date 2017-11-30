@@ -12,6 +12,7 @@ public class Lobby {
 	private int maxSongs;
 	private int numPlayers;
 	private String theme;
+	private int playlistsHeard = 0;
 	
 	public Lobby() {
 		players = new ArrayList<Player>();
@@ -47,6 +48,14 @@ public class Lobby {
 	
 	public String getTheme() {
 		return theme;
+	}
+	
+	public Playlist getNextPlaylist() {
+		Player current = players.get(playlistsHeard);
+		Playlist p = current.getPlaylist();
+		playlistsHeard++;
+		
+		return p;
 	}
 	
 }
