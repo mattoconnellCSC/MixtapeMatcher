@@ -240,6 +240,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		stage.initStyle(StageStyle.UTILITY);
 		stage.getIcons().add(new Image(this.getClass().getResource("../resources/Warning.png").toString()));
 
+		System.out.println("WRONG");
 		missingInfoAlert.showAndWait();
 	}
 	
