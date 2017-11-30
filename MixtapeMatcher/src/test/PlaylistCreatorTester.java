@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import application.CreatePlaylistCreator;
-import application.Player;
 import application.Song;
 
 /**

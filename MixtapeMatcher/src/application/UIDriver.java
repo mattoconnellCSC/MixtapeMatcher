@@ -4,7 +4,7 @@ import javafx.stage.Stage;
 
 /**
  * Driver class for UI screens.
- * @author Jordan
+ * @author Jordan, Natalie
  *
  */
 public class UIDriver implements Observer {
