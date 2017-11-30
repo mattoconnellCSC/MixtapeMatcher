@@ -49,8 +49,20 @@ public class HelpScreenCreator extends SceneCreator {
 		AnchorPane.setLeftAnchor(header, 10.0);
 		AnchorPane.setRightAnchor(header, 10.0);
 		
-		Label helpLabel = new Label("Help Screen");
-		helpLabel.setAlignment(Pos.TOP_CENTER);
+		Label intructionsTitle = new Label("Game Instructions:");
+		intructionsTitle.setAlignment(Pos.TOP_CENTER);
+		
+		Label instructions = new Label("1. Click start.\n"
+				+ "2. Select number of players, select the maximum number of songs each player can add, and add\n"
+				+ "     a theme (if desired).\n"
+				+ "\t• There can be 3-6 players.\n"
+				+ "\t• The maximum selection for number of songs in a playlist is 4.\n"
+				+ "3. Each player then must input their name and select their songs (don't let the other players\n"
+				+ "     see what you chose!).\n"
+				+ "4. Listen to each playlist.\n"
+				+ "5. Each player takes their turn guessing which player created each playlist.\n"
+				+ "6. Points are awarded to each player for their correct guesses.\n");
+		instructions.setAlignment(Pos.TOP_CENTER);
 
 		back = new Button();
 		back.setAlignment(Pos.TOP_LEFT);
@@ -59,19 +71,16 @@ public class HelpScreenCreator extends SceneCreator {
 		back.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 		    public void handle(ActionEvent e) {
-		    		//go back to main menu scene
-		    		
-//		    		gameDriver.update(lobby);
 		    		notifyObserver("mainmenu"); //tell UI Driver to move to next Scene
 		    }
 		});
 		
-		
-		GridPane.setConstraints(back, 0, 1);
-		GridPane.setConstraints(helpLabel, 0, 2);
-		GridPane.setConstraints(back, 1, 4);
+		GridPane.setConstraints(intructionsTitle, 0, 1);
+		GridPane.setConstraints(instructions, 0, 3);
+		GridPane.setConstraints(back, 0, 8);
+		lobbygrid.getChildren().add(intructionsTitle);
+		lobbygrid.getChildren().add(instructions);
 		lobbygrid.getChildren().add(back);
-		lobbygrid.getChildren().add(helpLabel);
 		
 		StackPane root = new StackPane();
 		root.getChildren().add(lobbygrid);
