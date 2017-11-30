@@ -72,7 +72,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 		AnchorPane.setTopAnchor(titleBox, null);
 		
 		//Get names of all mp3s
-		File folder = new File(System.getProperty("user.dir") + "/Songs");
+		File folder = new File(System.getProperty("user.dir") + "/bin/resources/Songs");
 		File[] listOfFiles = folder.listFiles();
 
 		    for (int i = 0; i < listOfFiles.length; i++) {
