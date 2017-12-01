@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class GameManager {
 	private ArrayList<Lobby> lobbies;
-	private static GameManager single_instance = null;
+	private static GameManager singleInstance = null;
 	
 	private GameManager() {}
 	
 	public static GameManager getInstance() {
-		if (single_instance == null)
-			single_instance = new GameManager();
+		if (singleInstance == null)
+			singleInstance = new GameManager();
 		
-		return single_instance;
+		return singleInstance;
 	}
 }
