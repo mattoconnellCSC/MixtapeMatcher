@@ -11,12 +11,12 @@ import application.Player;
  * @author Jordan
  *
  */
-public class PlayerTester {
+public class TestPlayer {
 
 	@Test
 	public void testPlayerCreated() {
 		Player p = new Player("Jordan");
 		
-		assertSame(p.getName(), "Jordan");
+		assertSame("Jordan", p.getName());
 	}
 }

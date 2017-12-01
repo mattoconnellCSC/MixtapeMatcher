@@ -10,7 +10,7 @@ import org.junit.runners.Suite.SuiteClasses;
  *
  */
 @RunWith(Suite.class)
-@SuiteClasses({ PlayerTester.class, SceneCreatorTester.class })
+@SuiteClasses({ TestPlayer.class, TestSceneCreator.class })
 public class JordansTestSuite {
 
 }

@@ -14,7 +14,7 @@ import application.UIDriver;
  * @author Jordan
  *
  */
-public class SceneCreatorTester {
+public class TestSceneCreator {
 
 	@Test
 	public void testObserver() {
