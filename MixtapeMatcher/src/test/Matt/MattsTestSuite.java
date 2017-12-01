@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestPlaylistCreator.class })
+@SuiteClasses({ TestLobby.class, TestPlayer.class })
 public class MattsTestSuite {
 
 }
