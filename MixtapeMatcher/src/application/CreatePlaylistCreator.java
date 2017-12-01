@@ -336,6 +336,30 @@ public class CreatePlaylistCreator extends SceneCreator{
 		}
 	}
 	
+	public ObservableList<Song> getSongs(){
+		return songs;
+	}
+	
+	public ObservableList<Song> getMySongs(){
+		return mySongs;
+	}
+	
+	// This method Not currently used
+	 	public VBox addButton(ObservableList<Song> searchResults, ObservableList<Song> playlist) {
+	 		VBox vbox = new VBox();
+	 		searchResults = searchResults;
+	 		playlist = playlist;
+	 		vbox.setPadding(new Insets(350, 100, 350, 10));
+	 		Button addSongBtn = new Button();
+	 		addSongBtn.setText("Add Song");
+	 		addSongBtn.setPrefSize(25.0, 15);
+	 		addSongBtn.setAlignment(Pos.CENTER_LEFT);
+	 		
+	 		vbox.getChildren().addAll(addSongBtn);
+	 		
+	 		return vbox;
+	 	}
+	
 }
 
 

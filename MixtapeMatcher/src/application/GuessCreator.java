@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 public class GuessCreator extends SceneCreator {
 	private ObservableList<Song> songs = FXCollections.observableArrayList();
 	private ListView<Song> playlist = new ListView<>(songs);
-	public ToggleGroup tg = new ToggleGroup();
+	private ToggleGroup tg = new ToggleGroup();
 
 	private Lobby l;
 	private ArrayList<Player> players;
@@ -203,5 +203,21 @@ public class GuessCreator extends SceneCreator {
 		
 		return vbox;
 	}
+	
+	// This method Not currently used
+	 	public VBox addButton(ObservableList<Song> searchResults, ObservableList<Song> playlist) {
+	 		VBox vbox = new VBox();
+	 		searchResults = searchResults;
+	 		playlist = playlist;
+	 		vbox.setPadding(new Insets(350, 100, 350, 10));
+	 		Button addSongBtn = new Button();
+	 		addSongBtn.setText("Add Song");
+	 		addSongBtn.setPrefSize(25.0, 15);
+	 		addSongBtn.setAlignment(Pos.CENTER_LEFT);
+	 		
+	 		vbox.getChildren().addAll(addSongBtn);
+	 		
+	 		return vbox;
+	 	}
 
 }
