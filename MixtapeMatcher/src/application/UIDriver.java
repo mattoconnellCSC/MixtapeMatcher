@@ -101,11 +101,11 @@ public class UIDriver implements Observer {
 			setGuess();
 			break;
 		case "results":
-			if(playersGuessed++ < lobby.getNumPlayers()) {
+			if(playersGuessed++ < lobby.getNumPlayers() - 1) {
 				setGuess();
 				break;
 			}
-			else if(playlistsPlayed++ < lobby.getNumPlayers()) {
+			else if(playlistsPlayed++ < lobby.getNumPlayers() - 1) {
 				System.out.println("Supposed to jump back to listen");
 				playersGuessed = 0;
 				setListen();

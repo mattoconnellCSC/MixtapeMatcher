@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -28,6 +30,7 @@ import javafx.stage.Stage;
 public class GuessCreator extends SceneCreator {
 	public ObservableList<Song> songs = FXCollections.observableArrayList();
 	public ListView<Song> playlist = new ListView<Song>(songs);
+	public ToggleGroup tg = new ToggleGroup();
 
 	private Lobby l;
 	private ArrayList<Player> players;
@@ -94,7 +97,8 @@ public class GuessCreator extends SceneCreator {
 				
 				//Player Guess Button(s)
 				for (int j=0; j < numPlayers; j++) {
-					Button playerButton = new Button();	
+					ToggleButton playerButton = new ToggleButton();	
+					playerButton.setToggleGroup(tg);
 					playerButton.setText(players.get(j).getName());
 					playerButton.setPrefWidth(150.0);
 				
@@ -125,6 +129,8 @@ public class GuessCreator extends SceneCreator {
 							updateCurrentPlayer();
 							guessMaker.setCurrentPlayer(currentPlayer);
 						}
+						
+						notifyObserver("results");
 					}
 				});
 				
