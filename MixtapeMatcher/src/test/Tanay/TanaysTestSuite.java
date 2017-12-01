@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestSongCreator.class, SongTester.class })
+@SuiteClasses({ TestSongTitleArtist.class, TestSongGetInfo.class })
 public class TanaysTestSuite {
 
 }
