@@ -9,6 +9,11 @@ import application.Lobby;
 import application.UIDriver;
 import javafx.stage.Stage;
 
+/**
+ * Test (basic) integration between UIDriver and GameDriver
+ * @author Jordan
+ *
+ */
 public class TestUIDriverGameDriverIntegration {
 
 	@Test

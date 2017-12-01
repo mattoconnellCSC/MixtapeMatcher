@@ -6,7 +6,11 @@ import org.junit.Test;
 
 import application.Player;
 import application.Playlist;
-
+/**
+ * Test (basic) Integration between Player and Playlist
+ * @author Jordan
+ *
+ */
 public class TestPlayerPlaylistIntegration {
 
 	@Test
