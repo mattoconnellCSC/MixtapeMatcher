@@ -1,5 +1,6 @@
 package application;
 
+
 import java.net.URL;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
@@ -19,6 +20,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
+@java.lang.SuppressWarnings("squid:S1604")
+
 /**
  * Listen Creator
  * @author Tanay
@@ -27,7 +31,10 @@ import javafx.util.Duration;
 
 public class ListenCreator extends SceneCreator {
 	MediaPlayer mediaPlayer;
-	Button button1, button2, button3, button4;
+	Button button1;
+	Button button2;
+	Button button3;
+	Button button4;
 	ArrayList<Player> players;
 	ChoiceBox<String> dropdown;
 	Button makeGuess;
@@ -68,7 +75,7 @@ public class ListenCreator extends SceneCreator {
 		buttons = new HBox();
 		buttons.setTranslateY(100);
 		songs = players.get(0).getPlaylist().getSongs();
-		dropdown = new ChoiceBox<String>();
+		dropdown = new ChoiceBox<>();
 		dropdown.setTranslateX((150));
 		dropdown.setTranslateY(15);
 		for (int s = 0; s < songs.size(); s++) {
@@ -125,10 +132,6 @@ public class ListenCreator extends SceneCreator {
 		makeGuess.setTranslateY(200);
 		makeGuess.setOnAction(new EventHandler<ActionEvent>() {
 				 public void handle(ActionEvent e) {
-				        //set #players, #songs, theme on submit action, then ask each player for name
-//				    		getPlayerNames(numPlayers, stagename);
-					 
-				    		
 				    		notifyObserver("guess"); //tell UI Driver to move to next Scene
 				    }
 		});
