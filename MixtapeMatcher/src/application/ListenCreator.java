@@ -38,12 +38,14 @@ public class ListenCreator extends SceneCreator {
 	ArrayList<Player> players;
 	ChoiceBox<String> dropdown;
 	Button makeGuess;
+	ArrayList<Song> songs;
 	
 	
 	public ListenCreator(UIDriver uiDriver, Player p) {
 		super(uiDriver);
 		players = uiDriver.getLobby().getPlayerList();
 		uiDriver.getLobby().setCurrentPlaylist(p.getPlaylist());
+		songs = uiDriver.getLobby().getCurrentPlaylist().getSongs();
 	}
 	
 	public Scene createScene(Stage stage) {
@@ -67,14 +69,12 @@ public class ListenCreator extends SceneCreator {
 		Image backwardImg = new Image(getClass().getResourceAsStream("../resources/Backward.png"));
 		
 		HBox buttons;
-		ArrayList<Song> songs;
 		URL resource;
 		Media media;
 		
 		// Player 1
 		buttons = new HBox();
 		buttons.setTranslateY(100);
-		songs = players.get(0).getPlaylist().getSongs();
 		dropdown = new ChoiceBox<>();
 		dropdown.setTranslateX((150));
 		dropdown.setTranslateY(15);

@@ -19,8 +19,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-@java.lang.SuppressWarnings("squid:S00112")
-
 /**
  * UI Screen for the Guess part of the game 
  * @author Will
