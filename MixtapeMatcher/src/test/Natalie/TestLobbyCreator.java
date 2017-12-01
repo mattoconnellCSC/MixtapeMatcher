@@ -8,7 +8,7 @@ import application.LobbyCreator;
 import application.UIDriver;
 
 /**
- * 
+ * Test Lobby Creator
  * @author Natalie Wagner
  *
  */

@@ -27,4 +27,7 @@ public class Guess {
 	public void setCurrentPlayer(Player player) {
 		this.player = player;
 	}
+	
+	public Player getPlayer() { return player; }
+	public String getAnswer() { return answer; }
 }
