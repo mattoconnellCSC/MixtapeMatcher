@@ -7,6 +7,12 @@ import org.junit.Test;
 import application.Guess;
 import application.Player;
 
+/**
+ * 
+ * @author Matt
+ *
+ */
+
 public class TestGuessPlayerIntegration {
 
 	private Guess makeGuess;

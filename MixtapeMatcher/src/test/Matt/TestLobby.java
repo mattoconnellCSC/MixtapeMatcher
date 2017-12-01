@@ -7,6 +7,12 @@ import org.junit.Test;
 import application.Lobby;
 import application.Playlist;
 
+/**
+ * 
+ * @author Matt
+ *
+ */
+
 public class TestLobby {
 
 	@Test

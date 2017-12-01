@@ -7,6 +7,12 @@ import org.junit.Test;
 import application.Lobby;
 import application.Playlist;
 
+/**
+ * 
+ * @author Will
+ *
+ */
+
 public class TestLobbyPlaylistIntegration {
 
 	private Playlist pl = new Playlist("name");

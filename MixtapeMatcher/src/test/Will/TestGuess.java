@@ -6,7 +6,11 @@ import org.junit.Test;
 
 import application.Guess;
 import application.Player;
-
+/**
+ * 
+ * @author Will
+ *
+ */
 public class TestGuess {
 
 	@Test

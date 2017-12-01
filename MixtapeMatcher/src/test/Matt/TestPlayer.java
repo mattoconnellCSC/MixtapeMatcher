@@ -6,7 +6,11 @@ import org.junit.Test;
 
 import application.Player;
 import application.Playlist;
-
+/**
+ * 
+ * @author Matt
+ *
+ */
 public class TestPlayer {
 
 	@Test
