@@ -132,6 +132,7 @@ public class ListenCreator extends SceneCreator {
 		makeGuess.setTranslateY(200);
 		makeGuess.setOnAction(new EventHandler<ActionEvent>() {
 				 public void handle(ActionEvent e) {
+					 	mediaPlayer.stop();
 				    		notifyObserver("guess"); //tell UI Driver to move to next Scene
 				    }
 		});
