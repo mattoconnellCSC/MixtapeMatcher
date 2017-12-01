@@ -15,8 +15,11 @@ public class UIDriver implements Observer {
 	private GameDriver parent;
 	private Lobby lobby;
 	private int playlistsCreated = 0;
+	private int playersGuessed = 0;
+	private int playlistsPlayed = 0;
 	private ArrayList<Player> randomizedPlayerList;
 	private int playerCounter = 0;
+	private boolean randomized = false;
 	
 	/**
 	 * Constructor :)
@@ -44,14 +47,22 @@ public class UIDriver implements Observer {
 	}
 	
 	public void setListen() {
-		randomizedPlayerList = new ArrayList<Player>(lobby.getPlayerList());
-		Collections.shuffle(randomizedPlayerList);
+		if(randomized == false) {
+			randomizedPlayerList = new ArrayList<Player>(lobby.getPlayerList());
+			Collections.shuffle(randomizedPlayerList);
+			randomized = true;
+		}
 		ListenCreator listenScreen = new ListenCreator(this, randomizedPlayerList.get(playerCounter++)); //empty constructor
 		listenScreen.setScene(stage, "Listen to the Playlist"); //empty function
 	}
 	public void setGuess() {
 		GuessCreator guessScreen = new GuessCreator(this, lobby);
 		guessScreen.setScene(stage,  "Make your Guess!");
+	}
+	
+	public void setResults() {
+		ResultsCreator resultsScreen = new ResultsCreator(this, lobby);
+		resultsScreen.setScene(stage, "Let's see the results...");
 	}
 	
 	public void setHelp() {
@@ -77,9 +88,8 @@ public class UIDriver implements Observer {
 			setCreate();
 			break;
 		case "listen":
-			if (playlistsCreated < lobby.getNumPlayers()+1) {
-				playlistsCreated++;
-				System.out.printf("Created %d/%d playlists!\n", playlistsCreated, lobby.getNumPlayers());
+			if (playlistsCreated <= lobby.getNumPlayers()+1) {
+				System.out.printf("Created %d/%d playlists!\n", playlistsCreated++, lobby.getNumPlayers());
 				setCreate();
 				break;
 			}
@@ -90,6 +100,22 @@ public class UIDriver implements Observer {
 		case "guess":
 			setGuess();
 			break;
+		case "results":
+			if(playersGuessed++ < lobby.getNumPlayers()) {
+				setGuess();
+				break;
+			}
+			else if(playlistsPlayed++ < lobby.getNumPlayers()) {
+				System.out.println("Supposed to jump back to listen");
+				playersGuessed = 0;
+				setListen();
+				break;
+			}
+			else {
+				System.out.println("All done guessing");
+				setResults();
+				break;
+			}
 		default:
 			System.err.println("uh oh");
 		}

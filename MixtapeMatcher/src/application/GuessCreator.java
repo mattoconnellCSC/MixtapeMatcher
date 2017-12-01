@@ -190,8 +190,7 @@ public class GuessCreator extends SceneCreator {
 		playlistGrid.setPadding(new Insets(10, 10, 10, 10));
 		playlistGrid.setVgap(10.0);
 		
-		Text playListTitle = new Text();
-		playListTitle.setText(currentPlaylist.getName());
+		Label playListTitle = new Label(currentPlaylist.getName());
 		
 		for (Song s : currentPlaylist.getSongs())
 			songs.add(s);
