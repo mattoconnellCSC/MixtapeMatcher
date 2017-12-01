@@ -58,6 +58,7 @@ public class ListenCreator extends SceneCreator {
 			dropdown.getItems().add(songs.get(s).getTitle() + " - " + songs.get(s).getArtist() + ".mp3");
 		}
 		dropdown.getSelectionModel().selectFirst();
+		dropdown.getStyleClass().add("playlistDropdown");
 		
 		String songName = "../resources/Songs/" + dropdown.getSelectionModel().getSelectedItem();
 	    resource = getClass().getResource(songName);

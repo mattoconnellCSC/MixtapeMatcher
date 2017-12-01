@@ -22,3 +22,7 @@
 	-fx-font-size: 50.0;
 	-fx-font-weight: bold;
 }
+
+.choice-box .label {
+	-fx-text-fill: black;
+}
