@@ -1,7 +1,6 @@
 package application;
 
 import java.io.File;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -50,7 +51,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 	public boolean nameMade;
 	public String playerName;
 	public String playlistName;
-	
+		
 	// change to be an input box, save input
 	public String currentPlayerName = "Player Name";
 	public String playlistTitle = "Playlist Title";
@@ -170,7 +171,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 					System.out.println("player " + player.getName() + " created playlist " + playlist.getName());
 					gd.update(player);
 				}
-				else if (playerName.equals("") && playlistName.equals("")) { //no player or playlist name
+				else if (playerName.equals("") && playlistName.equals("")) { //no player name and no playlist name
 					String msg = "You are missing the player name and playlist name. Please fill them out before moving forward.";
 					informPlayerOfMissingFields(msg);
 				}
@@ -236,10 +237,23 @@ public class CreatePlaylistCreator extends SceneCreator{
 		missingInfoAlert.setContentText(msg);
 		missingInfoAlert.setGraphic(null);
 		
+		DialogPane dialogPane = missingInfoAlert.getDialogPane();
+		dialogPane.setStyle("-fx-background-color: #666666; -fx-text-fill: aliceblue;"); //maintext
+		
+		dialogPane.getStyleClass().remove("alert");
+		GridPane grid = (GridPane)dialogPane.lookup(".header-panel"); 
+	    grid.setStyle("-fx-background-color: #AAAAAA; -fx-text-fill: aliceblue; -fx-font-size: 17px; -fx-font-weight: bold;"); //top
+
+	    dialogPane.lookup(".content.label").setStyle("-fx-font-size: 15px; -fx-text-fill: aliceblue;");
+	    
+	    ButtonBar buttonBar = (ButtonBar)missingInfoAlert.getDialogPane().lookup(".button-bar");
+	    buttonBar.getButtons().forEach(b->b.setStyle("-fx-background-color: linear-gradient(#0ba4ea, #0b34ea);"
+	    		+ "-fx-text-fill: aliceblue;"));
+		
 		Stage stage = (Stage) missingInfoAlert.getDialogPane().getScene().getWindow();
 		stage.initStyle(StageStyle.UTILITY);
 		stage.getIcons().add(new Image(this.getClass().getResource("../resources/Warning.png").toString()));
-
+		
 		System.out.println("WRONG");
 		missingInfoAlert.showAndWait();
 	}
