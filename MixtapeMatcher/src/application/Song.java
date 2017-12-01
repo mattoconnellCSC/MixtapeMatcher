@@ -1,9 +1,3 @@
-// @Bridget from PL requests Songs have play(), pause(), reset()
-//   also getProgress() (etc) to get song progress
-// TODO: w/ Bridget, play songs consecutively in Playlist
-
-// YouTube API Key: AIzaSyAbPGPoj6qg64J-iQxTl04D1mDT2L5V7o4
-
 package application;
 
 public class Song {

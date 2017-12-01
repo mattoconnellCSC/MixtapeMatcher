@@ -6,7 +6,7 @@ import application.Song;
 
 /**
  * Test Song Object
- * @author Matt
+ * @author Tanay
  *
  */
 
