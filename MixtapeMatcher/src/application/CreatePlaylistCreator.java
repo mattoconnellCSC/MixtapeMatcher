@@ -179,6 +179,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 					// send playlist to another class
 					System.out.println("player " + player.getName() + " created playlist " + playlist.getName());
 					gd.update(player);
+					notifyObserver("listen");
 				}
 				else if (playerName.equals("") && playlistName.equals("")) { //no player name and no playlist name
 					String msg = "You are missing the player name and playlist name. Please fill them out before moving forward.";

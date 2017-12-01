@@ -1,10 +1,13 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import javafx.stage.Stage;
 
 /**
  * Driver class for UI screens.
- * @author Jordan, Natalie
+ * @author Jordan, Natalie, Matt
  *
  */
 public class UIDriver implements Observer {
@@ -12,6 +15,8 @@ public class UIDriver implements Observer {
 	private GameDriver parent;
 	private Lobby lobby;
 	private int playlistsCreated = 0;
+	private ArrayList<Player> randomizedPlayerList;
+	private int playerCounter = 0;
 	
 	/**
 	 * Constructor :)
@@ -39,10 +44,14 @@ public class UIDriver implements Observer {
 	}
 	
 	public void setListen() {
-		//ListenCreator listenScreen = new ListenCreator(this); //empty constructor
-		//ResultsCreator listenScreen = new ResultsCreator(this, lobby);
-		GuessCreator listenScreen = new GuessCreator(this, parent);
+		randomizedPlayerList = new ArrayList<Player>(lobby.getPlayerList());
+		Collections.shuffle(randomizedPlayerList);
+		ListenCreator listenScreen = new ListenCreator(this, randomizedPlayerList.get(playerCounter++)); //empty constructor
 		listenScreen.setScene(stage, "Listen to the Playlist"); //empty function
+	}
+	public void setGuess() {
+		GuessCreator guessScreen = new GuessCreator(this, lobby);
+		guessScreen.setScene(stage,  "Make your Guess!");
 	}
 	
 	public void setHelp() {
@@ -68,14 +77,18 @@ public class UIDriver implements Observer {
 			setCreate();
 			break;
 		case "listen":
-			playlistsCreated++;
-			if (playlistsCreated < lobby.getNumPlayers()) {
+			if (playlistsCreated < lobby.getNumPlayers()+1) {
+				playlistsCreated++;
+				System.out.printf("Created %d/%d playlists!\n", playlistsCreated, lobby.getNumPlayers());
 				setCreate();
+				break;
 			}
 			else {
 				setListen();
+				break;
 			}
-
+		case "guess":
+			setGuess();
 			break;
 		default:
 			System.err.println("uh oh");

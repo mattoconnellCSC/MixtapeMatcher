@@ -13,6 +13,7 @@ public class Lobby {
 	private int numPlayers;
 	private String theme;
 	private int playlistsHeard = 0;
+	private Playlist currentPlaylist;
 	
 	public Lobby() {
 		players = new ArrayList<Player>();
@@ -56,6 +57,14 @@ public class Lobby {
 		playlistsHeard++;
 		
 		return p;
+	}
+	
+	public Playlist getCurrentPlaylist( ) {
+		return currentPlaylist;
+	}
+	
+	public void setCurrentPlaylist(Playlist p) {
+		currentPlaylist = p;
 	}
 	
 }

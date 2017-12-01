@@ -29,7 +29,7 @@ public class GuessCreator extends SceneCreator {
 	public ObservableList<Song> songs = FXCollections.observableArrayList();
 	public ListView<Song> playlist = new ListView<Song>(songs);
 
-	private GameDriver gameDriver;
+	private Lobby l;
 	private ArrayList<Player> players;
 	private Player currentPlayer;
 	private Playlist currentPlaylist;
@@ -38,12 +38,12 @@ public class GuessCreator extends SceneCreator {
 	private int i = 0;
 	private Label titleText = new Label();
 		
-	public GuessCreator(Observer o, GameDriver gd) {
+	public GuessCreator(Observer o, Lobby l) {
 		super(o);
-		gameDriver = gd;
-		
-		players = gameDriver.getLobby().getPlayerList();
-		numPlayers = gameDriver.getLobby().getNumPlayers();
+		this.l = l;
+		currentPlaylist = l.getCurrentPlaylist();
+		players = l.getPlayerList();
+		numPlayers = l.getNumPlayers();
 		findAnswer();
 		updateCurrentPlayer();
 	}
@@ -64,6 +64,7 @@ public class GuessCreator extends SceneCreator {
 			currentPlayer = players.get(i);
 			titleText.setText("Make Your Guess " + currentPlayer.getName());
 		}
+		
 		
 		i++;
 	}
@@ -92,7 +93,7 @@ public class GuessCreator extends SceneCreator {
 				VBox bottomVBox = new VBox();
 				
 				//Player Guess Button(s)
-				for (int j=0; j<numPlayers; j++) {
+				for (int j=0; j < numPlayers; j++) {
 					Button playerButton = new Button();	
 					playerButton.setText(players.get(j).getName());
 					playerButton.setPrefWidth(150.0);

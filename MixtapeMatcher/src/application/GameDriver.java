@@ -31,6 +31,7 @@ public class GameDriver extends Application implements Observer {
 		else if (data.getClass() == Player.class) {
 			//set Players and their Playlists; from CreatePlaylistCreator
 			lobby.addPlayer((Player) data);
+			
 			System.out.println("Player added!");
 		}
 		
