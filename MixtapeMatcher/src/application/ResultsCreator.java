@@ -28,11 +28,12 @@ import javafx.util.Callback;
  *
  */
 
+@java.lang.SuppressWarnings("squid:S1604")
 public class ResultsCreator extends SceneCreator {
 
 	private Lobby l;
 	private TableView resultsTable = new TableView();
-	private ArrayList<Player> playerList = new ArrayList<Player>();
+	private ArrayList<Player> playerList = new ArrayList<>();
 	
 	public ResultsCreator(Observer o, Lobby l) {
 		super(o);
@@ -79,7 +80,7 @@ public class ResultsCreator extends SceneCreator {
 		
 		
 		
-		
+
 		Button resetBtn = new Button("Back to Home");
 		resetBtn.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {

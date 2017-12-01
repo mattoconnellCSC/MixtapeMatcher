@@ -37,8 +37,8 @@ public class UIDriver implements Observer {
 	}
 	
 	public void setLobby() {
-		LobbyCreator lobby = new LobbyCreator(this, parent);
-		lobby.setScene(stage, "Game Setup");
+		LobbyCreator lobbyCreator = new LobbyCreator(this, parent);
+		lobbyCreator.setScene(stage, "Game Setup");
 	}
 	
 	public void setCreate() {
@@ -47,8 +47,8 @@ public class UIDriver implements Observer {
 	}
 	
 	public void setListen() {
-		if(randomized == false) {
-			randomizedPlayerList = new ArrayList<Player>(lobby.getPlayerList());
+		if(!randomized) {
+			randomizedPlayerList = new ArrayList<>(lobby.getPlayerList());
 			Collections.shuffle(randomizedPlayerList);
 			randomized = true;
 		}
@@ -106,13 +106,11 @@ public class UIDriver implements Observer {
 				break;
 			}
 			else if(playlistsPlayed++ < lobby.getNumPlayers() - 1) {
-				System.out.println("Supposed to jump back to listen");
 				playersGuessed = 0;
 				setListen();
 				break;
 			}
 			else {
-				System.out.println("All done guessing");
 				setResults();
 				break;
 			}
@@ -120,7 +118,7 @@ public class UIDriver implements Observer {
 			setMainMenu();
 			break;
 		default:
-			System.err.println("uh oh");
+			setMainMenu();
 		}
 		
 	}
