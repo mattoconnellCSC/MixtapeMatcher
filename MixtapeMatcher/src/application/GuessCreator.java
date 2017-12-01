@@ -39,7 +39,7 @@ public class GuessCreator extends SceneCreator {
 	private Playlist currentPlaylist;
 	private String answer;
 	private int numPlayers;
-	private int i = 0;
+	private static int i = 0;
 	private Label titleText = new Label();
 		
 	public GuessCreator(Observer o, Lobby l) {
@@ -68,8 +68,20 @@ public class GuessCreator extends SceneCreator {
 			currentPlayer = players.get(i);
 			titleText.setText("Make Your Guess " + currentPlayer.getName());
 		}
+		else if (i == numPlayers) { //guessing new playlist
+			resetCounter();
+			currentPlayer = players.get(i);
+			titleText.setText("Make Your Guess " + currentPlayer.getName());
+		}
 		
-		
+		iterateCounter();
+	}
+	
+	public static synchronized void resetCounter() {
+		i = 0;
+	}
+	
+	public static synchronized void iterateCounter() {
 		i++;
 	}
 
@@ -127,7 +139,7 @@ public class GuessCreator extends SceneCreator {
 						if (currentPlayer.getGuess() != null) {
 							currentPlayer = guessMaker.setScore();
 							//gamedriver.lobby.getplayers(index) = current playerS
-							updateCurrentPlayer();
+//							updateCurrentPlayer();
 							guessMaker.setCurrentPlayer(currentPlayer);
 						}
 						
