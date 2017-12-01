@@ -74,10 +74,19 @@ public class CreatePlaylistCreator extends SceneCreator{
 		Label titleText = new Label("Create Your Playlist");
 		titleText.getStyleClass().add("label-title");
 		titleText.setAlignment(Pos.CENTER);
-		HBox titleBox = new HBox();
+		VBox titleBox = new VBox();
 		titleBox.setPadding(new Insets(15, 10, 10, 10));
 		titleBox.getChildren().add(titleText);
-		titleBox.setAlignment(Pos.TOP_CENTER);
+		titleBox.setAlignment(Pos.CENTER_LEFT);
+		//set theme, if applicable
+		String theme = gd.getLobby().getTheme();
+		if (!theme.equals("")) {
+			Label themeLabel = new Label("Theme: " + theme);
+			themeLabel.setAlignment(Pos.CENTER_LEFT);
+			themeLabel.setPadding(new Insets(0, 10, 10, 10));
+			titleBox.getChildren().add(themeLabel);
+		}
+		
 		
 		AnchorPane.setTopAnchor(titleBox, null);
 		
