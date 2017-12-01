@@ -7,7 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 // Bridget Winn owns this class
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestPlaylist.class, TestSong.class})
+@SuiteClasses({ TestPlaylistAddSong.class })
 public class BridgetsTestSuite {
 
 }
