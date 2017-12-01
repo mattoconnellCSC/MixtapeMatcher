@@ -138,8 +138,6 @@ public class GuessCreator extends SceneCreator {
 					public void handle(ActionEvent e) {
 						if (currentPlayer.getGuess() != null) {
 							currentPlayer = guessMaker.setScore();
-							//gamedriver.lobby.getplayers(index) = current playerS
-//							updateCurrentPlayer();
 							guessMaker.setCurrentPlayer(currentPlayer);
 						}
 						
