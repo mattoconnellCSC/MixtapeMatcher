@@ -344,7 +344,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 	
 	public void searchForSongs(String s) {
 		for (int i = 0; i < allSongs.size(); i++) {
-			if (allSongs.get(i).getTitle().contains(s) || allSongs.get(i).getArtist().contains(s)) {
+			if (allSongs.get(i).getTitle().toLowerCase().contains(s.toLowerCase()) || allSongs.get(i).getArtist().toLowerCase().contains(s.toLowerCase())) {
 				songs.add(allSongs.get(i));
 			}
 		}
