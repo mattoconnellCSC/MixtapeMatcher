@@ -28,7 +28,9 @@ public class HelpScreenCreator extends SceneCreator {
 	}
 	
 	Button back;
-	
+
+
+@java.lang.SuppressWarnings("squid:S1604")
 	@Override
 	public Scene createScene(Stage stage)
 	{

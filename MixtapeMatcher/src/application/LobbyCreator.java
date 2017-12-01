@@ -1,7 +1,5 @@
 package application;
 
-import java.util.Optional;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -11,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -35,13 +32,14 @@ public class LobbyCreator extends SceneCreator {
 	}
 	
 	private GameDriver gameDriver;
-	public boolean isNumPlayersSelected;
-	public boolean isNumSongsSelected;
-	public int numPlayers, numSongs;
-	public String theme;
+	private boolean isNumPlayersSelected;
+	private boolean isNumSongsSelected;
+	private int numPlayers, numSongs;
+	private String theme;
 	Button submit;
-	String playerNames[];
-	
+	private String playerNames[];
+
+@java.lang.SuppressWarnings("squid:S1604")
 	public Scene createScene(Stage stagename)
 	{
 		AnchorPane anchor = new AnchorPane();
@@ -63,13 +61,13 @@ public class LobbyCreator extends SceneCreator {
 		
 		Label numPlayersLabel = new Label("Number of Players");
 		numPlayersLabel.setAlignment(Pos.TOP_CENTER);
-		ComboBox<Integer> playersComboBox = new ComboBox<Integer>();
+		ComboBox<Integer> playersComboBox = new ComboBox<>();
 		playersComboBox.getItems().setAll(3,4,5,6);
 		playersComboBox.setOnAction(e -> setPlayersSelected());
 		
 		Label maxSongsLabel = new Label("Max Songs Per Player");
 		maxSongsLabel.setAlignment(Pos.TOP_CENTER);
-		ComboBox<Integer> songsComboBox = new ComboBox<Integer>();
+		ComboBox<Integer> songsComboBox = new ComboBox<>();
 		songsComboBox.getItems().setAll(1,2,3,4);
 		songsComboBox.setOnAction(e -> setNumSongsSelected());
 		
@@ -133,14 +131,14 @@ public class LobbyCreator extends SceneCreator {
 	
 	public void setPlayersSelected() {
 		isNumPlayersSelected = true;
-		if (isNumSongsSelected == true) {
+		if (isNumSongsSelected) {
 			submit.setDisable(false);
 		}
 	}
 	
 	public void setNumSongsSelected() {
 		isNumSongsSelected = true;
-		if (isNumPlayersSelected == true) {
+		if (isNumPlayersSelected) {
 			submit.setDisable(false);
 		}
 	}

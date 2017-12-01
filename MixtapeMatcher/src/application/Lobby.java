@@ -16,7 +16,7 @@ public class Lobby {
 	private Playlist currentPlaylist;
 	
 	public Lobby() {
-		players = new ArrayList<Player>();
+		players = new ArrayList<>();
 	}
 	
 	public int getMaxSongs() {
@@ -26,7 +26,9 @@ public class Lobby {
 	public void addPlayer(Player p) {
 		players.add(p);
 	}
-	
+
+
+@java.lang.SuppressWarnings("squid:S1319")
 	public ArrayList<Player> getPlayerList() {
 		return players;
 	}
