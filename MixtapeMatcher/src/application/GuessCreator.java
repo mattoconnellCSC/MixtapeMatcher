@@ -18,8 +18,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+@java.lang.SuppressWarnings("squid:S1604")
 
 /**
  * UI Screen for the Guess part of the game 
@@ -28,8 +29,8 @@ import javafx.stage.Stage;
  */
 
 public class GuessCreator extends SceneCreator {
-	public ObservableList<Song> songs = FXCollections.observableArrayList();
-	public ListView<Song> playlist = new ListView<Song>(songs);
+	private ObservableList<Song> songs = FXCollections.observableArrayList();
+	private ListView<Song> playlist = new ListView<>(songs);
 	public ToggleGroup tg = new ToggleGroup();
 
 	private Lobby l;
@@ -92,7 +93,7 @@ public class GuessCreator extends SceneCreator {
 				AnchorPane.setTopAnchor(titleBox, null);
 				
 				VBox rightVBox = new VBox();
-				VBox leftVBox = addLeftVBox(currentPlaylist);
+				VBox leftVBox = addLeftVBox();
 				VBox bottomVBox = new VBox();
 				
 				//Player Guess Button(s)
@@ -162,33 +163,12 @@ public class GuessCreator extends SceneCreator {
 				Scene cgScene = new Scene(anchor, 500, 500);
 				
 		
-		// Using an Anchor Pane as the root pane in this screen
-		/*AnchorPane anchor = new AnchorPane();
-		anchor.setPadding(new Insets(10, 10, 10, 10));
-		
-		//Screen Title displayed and anchored at top
-		titleText.getStyleClass().add("label-title");
-		titleText.setAlignment(Pos.CENTER);
-		HBox titleBox = new HBox();
-		titleBox.setPadding(new Insets(15, 10, 10, 10));
-		titleBox.getChildren().add(titleText);
-		titleBox.setAlignment(Pos.TOP_CENTER);
-		
-		AnchorPane.setTopAnchor(titleBox, null);
-		
-		//vbox for displaying current playlist
-		
-		//press button of player name, set player guess to that player
-		
-		//press confirm guess button, call guess.setScore() and update current player
-		
-		Scene cgScene = new Scene(anchor, 275, 250);*/
 
 		cgScene.getStylesheets().add("application/application.css");
 		return cgScene;
 	}
 	
-	public VBox addLeftVBox(Playlist current) {
+	public VBox addLeftVBox() {
 		VBox vbox = new VBox();
 		vbox.setPadding(new Insets(10, 10, 10, 10));
 		
