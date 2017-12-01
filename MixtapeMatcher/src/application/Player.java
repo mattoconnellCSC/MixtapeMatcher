@@ -8,6 +8,7 @@ package application;
 
 public class Player {
 	private String name;
+	private String guess;
 
 	private Playlist playlist;
 	
@@ -59,6 +60,14 @@ public class Player {
 	
 	public void findAverage() {
 		average = (float) sumScores / gamesPlayed;
+	}
+	
+	public String getGuess() {
+		return guess;
+	}
+	
+	public void setGuess(String g) {
+		guess = g;
 	}
 	
 }
