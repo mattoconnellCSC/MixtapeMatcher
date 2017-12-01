@@ -7,7 +7,13 @@ import org.junit.Test;
 import application.Playlist;
 import application.Song;
 
-public class TestPlaylistAddSong {
+/**
+ * Test Playlist 
+ * @author Matt
+ *
+ */
+
+public class TestPlaylist {
 
 	@Test
 	public void testAddSongByTitleArtist() {
@@ -35,5 +41,29 @@ public class TestPlaylistAddSong {
 		
 		assertEquals(mine.getSongs().get(0).getLength(), (float)120.5, 0.00001);
 	}
+	
+	@Test
+	public void testGetName() {
+		Playlist mine = new Playlist("Bridget");
+
+		assertEquals(mine.getName(), "Bridget");
+	}
+	
+	@Test
+	public void testIsEmptyTrue() {
+		Playlist mine = new Playlist("Bridget");
+		
+		assertEquals(mine.isEmpty(), true);
+	}
+	
+	@Test
+	public void testIsEmptyFalse() {
+		Playlist mine = new Playlist("Bridget");
+		Song song = new Song("A", "B");
+		mine.addSong(song);
+		
+		assertEquals(mine.isEmpty(), false);
+	}
+	
 	
 }
