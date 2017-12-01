@@ -86,9 +86,6 @@ public class LobbyCreator extends SceneCreator {
 		submit.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 		    public void handle(ActionEvent e) {
-		        //set #players, #songs, theme on submit action, then ask each player for name
-//		    		getPlayerNames(numPlayers, stagename);
-		    		
 		    		Lobby lobby = new Lobby();
 		    		lobby.setNumPlayers(Integer.parseInt(playersComboBox.getValue().toString()));
 		    		lobby.setMaxSongs(Integer.parseInt(songsComboBox.getValue().toString()));
@@ -148,27 +145,4 @@ public class LobbyCreator extends SceneCreator {
 		}
 	}
 	
-	public void getPlayerNames(int numPlayers, Stage stagename) {
-		//popup to get players' names
-		TextInputDialog dialog = new TextInputDialog(null);
-		dialog.setTitle("Player Names");
-		
-		playerNames = new String[numPlayers];
-
-		for (int i=0; i<numPlayers; i++) {
-			dialog.setHeaderText("Player " + (i+1) + "'s Name:");
-			Optional<String> result = dialog.showAndWait();
-			playerNames[i] = result.toString();
-			playerNames[i] = playerNames[i].substring(9, playerNames[i].length()-1);
-			dialog = new TextInputDialog(null);
-		}
-		
-		Lobby lob = new Lobby();
-		for(int i=0; i < playerNames.length; i++) {
-			Player newPlayer = new Player(playerNames[i]);
-			lob.addPlayer(newPlayer);
-		}
-		notifyGameDriver(lob); //someone else (Matt) create the Lobby object from the data here and put it in this function 
-		notifyObserver("create"); //send next scene to UIDriver
-	}
 }
