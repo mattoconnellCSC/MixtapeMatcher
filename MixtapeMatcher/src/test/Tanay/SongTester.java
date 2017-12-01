@@ -14,16 +14,24 @@ public class SongTester {
 	
 	@Test
 	public void testSongTitle() {
-		Song s1 = new Song("Hello", "Adele");
+		String title = "Hello";
+		String artist = "Adele";
 		
-		assert((s1.getTitle()).equals("Hello"));
+		Song s1 = new Song(title, artist);
+		String retreivedTitle = s1.getTitle();
+		
+		assertSame(title, retreivedTitle);
 	}
 	
 	@Test
 	public void testSongArtist() {
-		Song s1 = new Song("Hello", "Adele");
+		String title = "Hello";
+		String artist = "Adele";
 		
-		assert((s1.getArtist()).equals("Adele"));
+		Song s1 = new Song(title, artist);
+		String retreivedArtist = s1.getArtist();
+		
+		assertSame(artist, retreivedArtist);
 	}
 	
 }
