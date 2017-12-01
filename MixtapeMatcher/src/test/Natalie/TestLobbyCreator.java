@@ -19,7 +19,7 @@ public class TestLobbyCreator {
 	public void testSetPlayersSelected() {
 		LobbyCreator lobby = new LobbyCreator(new UIDriver(null, null), null);
 		lobby.setPlayersSelected();
-		boolean isNumPlayersSelected = lobby.isNumPlayersSelected;
+		boolean isNumPlayersSelected = lobby.isNumPlayersSelected();
 		
 		assertEquals(true, isNumPlayersSelected);
 	}
@@ -28,7 +28,7 @@ public class TestLobbyCreator {
 	public void testSetNumSongsSelected() {
 		LobbyCreator lobby = new LobbyCreator(new UIDriver(null, null), null);
 		lobby.setNumSongsSelected();
-		boolean isNumSongsSelected = lobby.isNumSongsSelected;
+		boolean isNumSongsSelected = lobby.isNumSongsSelected();
 		
 		assertEquals(true, isNumSongsSelected);
 	}

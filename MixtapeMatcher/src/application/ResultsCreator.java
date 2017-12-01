@@ -26,7 +26,7 @@ public class ResultsCreator extends SceneCreator {
 
 	private Lobby l;
 	private TableView resultsTable = new TableView();
-	private ArrayList<Player> playerList = new ArrayList<Player>();
+	private ArrayList<Player> playerList = new ArrayList<>();
 	
 	public ResultsCreator(Observer o, Lobby l) {
 		super(o);
@@ -91,6 +91,7 @@ public class ResultsCreator extends SceneCreator {
         private final SimpleStringProperty score;
  
         private Person(String name, Integer score) {
+        		name = name + "";
             playerName = new SimpleStringProperty("name");
             this.score = new SimpleStringProperty(score.toString());
         }

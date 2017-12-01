@@ -22,10 +22,10 @@ public class TestPlaylistCreator {
 		Song s2;
 		
 		
-		cpc.songs.add(s1);
-		cpc.addButton(cpc.songs, cpc.mySongs);
+		cpc.getSongs().add(s1);
+		cpc.addButton(cpc.getSongs(), cpc.getMySongs());
 		
-		s2 = cpc.mySongs.get(0);
+		s2 = cpc.getMySongs().get(0);
 		
 		
 		assertSame(s1.getTitle(), s2.getTitle());

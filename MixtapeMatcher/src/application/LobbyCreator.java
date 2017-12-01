@@ -130,17 +130,33 @@ public class LobbyCreator extends SceneCreator {
 	}
 	
 	public void setPlayersSelected() {
-		isNumPlayersSelected = true;
-		if (isNumSongsSelected) {
+		setNumPlayersSelected(true);
+		if (isNumSongsSelected()) {
 			submit.setDisable(false);
 		}
 	}
 	
 	public void setNumSongsSelected() {
 		isNumSongsSelected = true;
-		if (isNumPlayersSelected) {
+		if (isNumPlayersSelected()) {
 			submit.setDisable(false);
 		}
+	}
+
+	public boolean isNumPlayersSelected() {
+		return isNumPlayersSelected;
+	}
+
+	public void setNumPlayersSelected(boolean isNumPlayersSelected) {
+		this.isNumPlayersSelected = isNumPlayersSelected;
+	}
+
+	public boolean isNumSongsSelected() {
+		return isNumSongsSelected;
+	}
+
+	public void setNumSongsSelected(boolean isNumSongsSelected) {
+		this.isNumSongsSelected = isNumSongsSelected;
 	}
 	
 }

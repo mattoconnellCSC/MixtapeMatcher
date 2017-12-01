@@ -8,9 +8,10 @@ public class Playlist {
 	
 	public Playlist(String name) {
 		this.name = name;
-		songs = new ArrayList<Song>();
+		songs = new ArrayList<>();
 	}
-	
+
+@java.lang.SuppressWarnings("squid:S1319")
 	public ArrayList<Song> getSongs() { return songs; }
 	public String getName() { return name; }
 	public boolean isEmpty() { return songs.isEmpty(); }

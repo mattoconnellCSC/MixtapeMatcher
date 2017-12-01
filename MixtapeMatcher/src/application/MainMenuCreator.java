@@ -29,6 +29,7 @@ public class MainMenuCreator extends SceneCreator {
 		super(o);
 	}
 
+@java.lang.SuppressWarnings("squid:S1604")
 	@Override
 	public Scene createScene(Stage stage) {
 		AnchorPane anchor = new AnchorPane();
