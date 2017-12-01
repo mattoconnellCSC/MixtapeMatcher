@@ -1,7 +1,5 @@
 package application;
 
-import java.util.ArrayList;
-
 /**
  * Logic class for the Guess part of the game 
  * @author Will

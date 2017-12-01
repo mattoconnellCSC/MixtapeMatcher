@@ -3,10 +3,8 @@ package test.Natalie;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-
 import application.Lobby;
 import application.Player;
-
 import org.junit.Test;
 
 /**
