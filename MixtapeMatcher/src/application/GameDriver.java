@@ -26,7 +26,6 @@ public class GameDriver extends Application implements Observer {
 			//initialize lobby; from LobbyCreator
 			Lobby l = (Lobby) data;
 			this.lobby = l;
-			System.out.println("set lobby!");
 		}
 		
 		else if (data.getClass() == Player.class) {

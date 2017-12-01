@@ -69,7 +69,6 @@ public class UIDriver implements Observer {
 			break;
 		case "listen":
 			playlistsCreated++;
-			System.out.printf("Created %d/%d playlists!\n", playlistsCreated, lobby.getNumPlayers());
 			if (playlistsCreated < lobby.getNumPlayers()) {
 				setCreate();
 			}
