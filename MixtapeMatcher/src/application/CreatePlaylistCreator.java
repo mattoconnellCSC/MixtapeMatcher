@@ -17,9 +17,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -241,7 +243,7 @@ public class CreatePlaylistCreator extends SceneCreator{
 	
 	public void informPlayerOfMissingFields(String msg) {
 		Alert missingInfoAlert = new Alert(AlertType.INFORMATION);
-		missingInfoAlert.setTitle(" ");
+		missingInfoAlert.setTitle("");
 		missingInfoAlert.setHeaderText("Missing Information");
 		missingInfoAlert.setContentText(msg);
 		missingInfoAlert.setGraphic(null);
@@ -252,6 +254,14 @@ public class CreatePlaylistCreator extends SceneCreator{
 		dialogPane.getStyleClass().remove("alert");
 		GridPane grid = (GridPane)dialogPane.lookup(".header-panel"); 
 	    grid.setStyle("-fx-background-color: #AAAAAA; -fx-text-fill: aliceblue; -fx-font-size: 17px; -fx-font-weight: bold;"); //top
+	    
+	    ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("../resources/Warning.png")));
+	    imageView.setFitHeight(25);
+	    imageView.setFitWidth(25);
+	    StackPane stackPane = new StackPane(imageView);
+	    stackPane.setPrefSize(24, 24);
+	    stackPane.setAlignment(Pos.CENTER);
+	    dialogPane.setGraphic(stackPane);
 
 	    dialogPane.lookup(".content.label").setStyle("-fx-font-size: 15px; -fx-text-fill: aliceblue;");
 	    
@@ -259,11 +269,6 @@ public class CreatePlaylistCreator extends SceneCreator{
 	    buttonBar.getButtons().forEach(b->b.setStyle("-fx-background-color: linear-gradient(#0ba4ea, #0b34ea);"
 	    		+ "-fx-text-fill: aliceblue;"));
 		
-		Stage stage = (Stage) missingInfoAlert.getDialogPane().getScene().getWindow();
-		stage.initStyle(StageStyle.UTILITY);
-		stage.getIcons().add(new Image(this.getClass().getResource("../resources/Warning.png").toString()));
-		
-		System.out.println("WRONG");
 		missingInfoAlert.showAndWait();
 	}
 	
