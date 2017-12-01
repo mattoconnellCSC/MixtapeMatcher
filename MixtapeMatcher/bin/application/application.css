@@ -22,8 +22,3 @@
 	-fx-font-size: 50.0;
 	-fx-font-weight: bold;
 }
-
-.dialog-pane{
-	-fx-background-color: #777777;
-	-fx-text-fill: aliceblue;
-}
