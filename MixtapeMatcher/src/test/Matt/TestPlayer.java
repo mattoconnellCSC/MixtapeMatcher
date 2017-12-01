@@ -31,7 +31,7 @@ public class TestPlayer {
 		p.incrementScore();
 		p.decrementScore();
 		
-		assertEquals(p.getScore(), 2);
+		assertEquals(p.getScore(), 1);
 	}
 
 	@Test

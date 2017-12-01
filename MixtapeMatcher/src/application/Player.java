@@ -1,9 +1,7 @@
 package application;
 
 /**
- * 
- * @author Natalie, Bridget?
- *
+ * @author Natalie, Bridget
  */
 
 public class Player {
